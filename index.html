@@ -1,0 +1,419 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>☺ Native Form Elements</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+  <style>
+	body {
+		font-family: sans-serif;
+	}
+	
+	label {
+		display: block;
+	}
+	
+	.form-field-wrapper {
+		margin-bottom: .5rem;
+	}
+	
+	.form-field-hint {
+		font-style: italic;
+		color: rgba(0,0,0,.5);
+	}
+	
+	p.info:before {
+		content:"🛈";
+	}
+	
+	p.todo {
+		color: red;
+	}
+	
+	p.todo:before {
+		content:"ToDo:";
+	}
+	
+  </style>  
+</head>
+<body>
+<p>For more details please visit <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/The_native_form_widgets">MDN The native form widgets</a></p>
+
+<fieldset>
+	<legend>Input Field</legend>
+	
+	<div class"form-field-wrapper">
+		<label for="textbox-std">Input Standard<label>
+		<input type="text" id="textbox-std" name="" />
+	</div>
+	
+	<div class"form-field-wrapper">
+		<label for="textbox-pre">Input Standard (pre-filled)<label>
+		<input type="text" id="textbox-pre" name="" value="Input field content" />
+	</div>
+	
+	<div class"form-field-wrapper">
+		<label for="textbox-ph">Input Standard with Placeholder<label>
+		<input type="text" id="textbox-ph" name="" placeholder="Input field placeholder text" />
+	</div>
+	
+	<div class"form-field-wrapper">
+		<label for="textbox-req">Input (required)</label>
+		<input type="text" id="textbox-req" name="" required />
+	</div>
+	
+	<div class"form-field-wrapper">
+		<label for="textbox-ro">Input (read-only)</label>
+		<input type="text" id="textbox-ro" name="" value="Input field content" readonly />
+	</div>
+	
+	<div class"form-field-wrapper">
+		<label for="textbox-dis">Input (disabled)</label>
+		<input type="text" id="textbox-dis" name="" disabled />
+	</div>
+	
+	<div class"form-field-wrapper">
+		<label for="textbox-hint" aria-labelledby="hash-01">Input Standard with hint<label>
+		<input type="text" id="textbox-hint" name="" />
+		<div class="form-field-hint" id="hash-01">I'm the hint</div>
+	</div>
+</fieldset>
+
+<fieldset>
+	<legend>Password Field</legend>
+	
+	<div class"form-field-wrapper">
+		<label for="pwd-std">Password Standard<label>
+		<input type="password" id="pwd-std" name="" />
+	</div>
+	
+	<div class"form-field-wrapper">
+		<label for="textbox-ro">Password Read Only</label>
+		<input type="password" id="pwd-ro" name="" value="Input field content" readonly />
+	</div>
+	
+	<div class"form-field-wrapper">
+		<label for="textbox-dis">Password Disabled</label>
+		<input type="password" id="pwd-dis" name="" disabled />
+	</div>
+	
+	<div class"form-field-wrapper">
+	</div>
+</fieldset>
+
+<fieldset>
+	<legend>Radio Group</legend>
+	
+	<p>What do you wanna do today?</p>
+	
+	<div class"form-field-wrapper">
+		<input type="radio" id="radio-1" name="activities" value="radio-1" />
+		<label for="radio-1">Option 1</label>
+	</div>
+	<div class"form-field-wrapper">
+		<input type="radio" id="radio-2" name="activities" value="radio-2" />
+		<label for="radio-2">Option 2</label>
+	</div>
+		<input type="radio" id="radio-3" name="activities" value="radio-3" checked />
+		<label for="radio-3">Option 3 (pre-checked)</label>
+	</div>
+	<div class"form-field-wrapper">
+		<input type="radio" id="radio-4" name="activities" value="radio-4" />
+		<label for="radio-4">Option 4</label>
+	</div>
+	<div class"form-field-wrapper">
+		<input type="radio" id="radio-5" name="activities" value="radio-4" disabled>
+		<label for="radio-5">Option 5 (disabled)</label>
+	</div>
+	
+	<p class="info">There's no "read-only" state</p>
+	
+	<p>Choose! (required)</p>
+	
+	<div class"form-field-wrapper">
+		<input type="radio" id="radio-yes" name="radio-choose" value="yes" required />
+		<label for="radio-yes">Yes</label>
+	</div>
+	<div class"form-field-wrapper">
+		<input type="radio" id="radio-no" name="radio-choose" value="no" required />
+		<label for="radio-no">No</label>
+	</div>
+</fieldset>
+
+<fieldset>
+	<legend>Checkbox Group</legend>
+	
+	<p>What do you wanna do today?</p>
+	
+	<div class"form-field-wrapper">
+		<input type="checkbox" id="check-1" name="activities" value="check-1" />
+		<label for="check-1">Option 1</label>
+	</div>
+	<div class"form-field-wrapper">
+		<input type="checkbox" id="check-2" name="activities" value="check-2" />
+		<label for="check-2">Option 2</label>
+	</div>
+		<input type="checkbox" id="check-3" name="activities" value="check-3" checked />
+		<label for="check-3">Option 3 (pre-checked)</label>
+	</div>
+	<div class"form-field-wrapper">
+		<input type="checkbox" id="option-4" name="activities" value="option-4" />
+		<label for="option-4">Option 4</label>
+	</div>
+	<div class"form-field-wrapper">
+		<input type="checkbox" id="option-5" name="activities" value="option-4" disabled>
+		<label for="option-5">Option 5 (disabled)</label>
+	</div>
+	
+	<p class="info">There's no "read-only" state</p>
+	
+	<p>Choose! (required)</p>
+	
+	<div class"form-field-wrapper">
+		<input type="checkbox" id="check-yes" name="check-choose" value="yes" required />
+		<label for="check-yes">Yes</label>
+	</div>
+	<div class"form-field-wrapper">
+		<input type="checkbox" id="check-no" name="check-choose" value="no" required />
+		<label for="check-no">No</label>
+	</div>
+</fieldset>
+
+<fieldset>
+	<legend>Textarea</legend>
+	
+	<div class"form-field-wrapper">
+		<label for="textarea-std">Text Area</label>
+		<textarea id="textarea-std" name="textarea"></textarea>
+	</div>
+	
+	<div class"form-field-wrapper">
+		<label for="textarea-pre">Text Area (pre-filled)</label>
+		<textarea id="textarea-pre" name="textarea">Text area content</textarea>
+	</div>
+	
+	<div class"form-field-wrapper">
+		<label for="textarea-ph">Text Area with Placeholder</label>
+		<textarea id="textarea-ph" name="textarea" placeholder="Input field placeholder text"></textarea>
+	</div>
+	
+	<div class"form-field-wrapper">
+		<label for="textarea-req">Text Area (required)</label>
+		<textarea id="textarea-req" name="textarea" required></textarea>
+	</div>
+	
+	<div class"form-field-wrapper">
+		<label for="textarea-ro">Text Area (read-only)</label>
+		<textarea id="textarea-ro" name="textarea" readonly>Text area content</textarea>
+	</div>
+	
+	<div class"form-field-wrapper">
+		<label for="textarea-dis">Text Area (disabled)</label>
+		<textarea id="textarea-dis" name="textarea" disabled>Text area content</textarea>
+	</div>
+</fieldset>
+
+<fieldset>
+	<legend>Dropdown</legend>
+	
+	<div class"form-field-wrapper">
+		<label for="dropdown-std">Select</label>
+		<select id="dropdown-std">
+			<option value="">Please choose &hellip;</option>
+			<option value="1">Option 1</option>
+			<option value="2">Option 2</option>
+			<option value="3">Option 3</option>
+		</select>
+	</div>
+	
+	<div class"form-field-wrapper">
+		<label for="dropdown-pre">Select (pre-selected)</label>
+		<select id="dropdown-pre">
+			<option value="">Please choose &hellip;</option>
+			<option value="1">Option 1</option>
+			<option value="2" selected>Option 2</option>
+			<option value="3">Option 3</option>
+		</select>
+	</div>
+	
+	<div class"form-field-wrapper">
+		<label for="dropdown-req">Select (required)</label>
+		<select id="dropdown-req" required>
+			<option value="">Please choose &hellip;</option>
+			<option value="1">Option 1</option>
+			<option value="2">Option 2</option>
+			<option value="3">Option 3</option>
+		</select>
+	</div>
+	
+	<p class="info">There's no read-only</p>
+	
+	<div class"form-field-wrapper">
+		<label for="dropdown-dis">Select (disabled)</label>
+		<select id="dropdown-dis" disabled>
+			<option value="">Please choose &hellip;</option>
+			<option value="1">Option 1</option>
+			<option value="2">Option 2</option>
+			<option value="3">Option 3</option>
+		</select>
+	</div>
+	
+	<div class"form-field-wrapper">
+		<label for="dropdown-multi">Select (multiple)</label>
+		<select id="dropdown-multi" multiple>
+			<option value="">Please choose &hellip;</option>
+			<option value="1">Option 1</option>
+			<option value="2">Option 2</option>
+			<option value="3">Option 3</option>
+		</select>
+	</div>
+
+</fieldset>
+
+<fieldset>
+	<legend>Advanced Dropdown</legend>
+	
+	<div class"form-field-wrapper">
+		<label for="dropdown-adv-std">Select</label>
+		<select id="dropdown-adv-std">
+			<optgroup label="Group 1">
+				<option value="1">Option 1</option>
+				<option value="2">Option 2</option>
+				<option value="3">Option 3</option>
+			</optgroup>
+			<optgroup label="Group 2">
+				<option value="4">Option 4</option>
+				<option value="5">Option 5</option>
+				<option value="6" disabled>Option 6</option>
+			</optgroup>
+		</select>
+	</div>
+	
+	<div class"form-field-wrapper">
+		<label for="dropdown-adv-pre">Select (pre-selected)</label>
+		<select id="dropdown-adv-pre">
+			<optgroup label="Group 1">
+				<option value="1">Option 1</option>
+				<option value="2" selected>Option 2</option>
+				<option value="3">Option 3</option>
+			</optgroup>
+			<optgroup label="Group 2">
+				<option value="4">Option 4</option>
+				<option value="5">Option 5</option>
+				<option value="6">Option 6</option>
+			</optgroup>
+		</select>
+	</div>
+	
+	<div class"form-field-wrapper">
+		<label for="dropdown-adv-req">Select (required)</label>
+		<select id="dropdown-adv-req" required>
+			<optgroup label="Group 1">
+				<option value="1">Option 1</option>
+				<option value="2">Option 2</option>
+				<option value="3">Option 3</option>
+			</optgroup>
+			<optgroup label="Group 2">
+				<option value="4">Option 4</option>
+				<option value="5">Option 5</option>
+				<option value="6">Option 6</option>
+			</optgroup>
+		</select>
+	</div>
+	
+	<p class="info">There's no read-only</p>
+	
+	<div class"form-field-wrapper">
+		<label for="dropdown-adv-dis">Select (disabled)</label>
+		<select id="dropdown-adv-dis" disabled>
+			<optgroup label="Group 1">
+				<option value="1">Option 1</option>
+				<option value="2">Option 2</option>
+				<option value="3">Option 3</option>
+			</optgroup>
+			<optgroup label="Group 2">
+				<option value="4">Option 4</option>
+				<option value="5">Option 5</option>
+				<option value="6">Option 6</option>
+			</optgroup>
+		</select>
+	</div>
+	<div class"form-field-wrapper">
+		<label for="dropdown-adv-dis-part">Select (partly disabled)</label>
+		<select id="dropdown-adv-dis-part">
+			<optgroup label="Group 1" disabled>
+				<option value="1">Option 1</option>
+				<option value="2">Option 2</option>
+				<option value="3">Option 3</option>
+			</optgroup>
+			<optgroup label="Group 2">
+				<option value="4">Option 4</option>
+				<option value="5">Option 5</option>
+				<option value="6" disabled>Option 6</option>
+			</optgroup>
+		</select>
+	</div>
+
+</fieldset>
+
+<fieldset>
+	<legend>Datetime local</legend>
+	
+	<div class"form-field-wrapper">
+		<label for="meeting-time-std">Datetime</label>
+		<input type="datetime-local" id="meeting-time-std" name="meeting-time" />
+	</div>
+	
+	<div class"form-field-wrapper">
+		<label for="meeting-time-pre">Datetime (pre-filled)</label>
+		<input type="datetime-local" id="meeting-time-pre" name="meeting-time" value="2018-06-12T19:30" min="2018-06-07T00:00" max="2018-06-14T00:00" />
+	</div>
+	
+	<div class"form-field-wrapper">
+		<label for="meeting-time-req">Datetime (required)</label>
+		<input type="datetime-local" id="meeting-time-req" name="meeting-time" value="2018-06-12T19:30" min="2018-06-07T00:00" max="2018-06-14T00:00" required />
+	</div>
+	
+	<div class"form-field-wrapper">
+		<label for="meeting-time-ro">Datetime (read-only)</label>
+		<input type="datetime-local" id="meeting-time-ro" name="meeting-time" value="2018-06-12T19:30" min="2018-06-07T00:00" max="2018-06-14T00:00" readonly />
+	</div>
+	
+	<div class"form-field-wrapper">
+		<label for="meeting-time-dis">Datetime (disabled)</label>
+		<input type="datetime-local" id="meeting-time-dis" name="meeting-time" value="2018-06-12T19:30" min="2018-06-07T00:00" max="2018-06-14T00:00" disabled />
+	</div>
+</fieldset>
+
+<!--
+<input type="search" id="search" name="search">
+<label for="password">Password Input</label><br>
+<input type="password" name="password"><br><br>
+
+
+
+<label for="file">File</label><br>
+<input type="file" name="file"><br><br>
+<input type="submit" value="Submit Button">
+
+
+<details>
+    <summary>
+        Summary
+    </summary>
+	<p>this is the details content
+</details>
+
+<fieldset>
+	<legend>Checkbox Group</legend>
+	
+	<div class"form-field-wrapper">
+	</div>
+</fieldset>
+-->
+</body>
+</html>
