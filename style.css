@@ -1,0 +1,87 @@
+:root {
+  --main-bg-color-pos: rgba(240,240,240,1);
+  --main-bg-color-neg: rgba(40,40,40,1);
+
+  --text-color-pos: var(--main-bg-color-neg);
+  --text-color-neg: var(--main-bg-color-pos);
+
+  --color: 240, 240, 240;
+  --alpha: 0.5;
+  /* background-color: rgba(var(--color), var(--alpha)); */
+}
+
+
+html {
+    font-family: sans-serif;
+}
+
+html[data-theme='dark'] {}
+
+
+body {
+    background-color: var(--main-bg-color-pos);
+    color: var(--main-bg-color-neg);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+      background-color: var(--main-bg-color-neg);
+      color: var(--main-bg-color-pos);
+  }
+  img {
+      opacity: .75;
+      transition: opacity .5s ease-in-out;
+  }
+  img:hover {
+      opacity: 1;
+  }
+}
+
+/* F O R M   B A S I C   S T Y L E S  */
+label {
+    display: block;
+}
+
+.form-field-wrapper {
+    margin-bottom: .5rem;
+}
+
+.form-field-hint {
+    font-style: italic;
+    color: rgba(0,0,0,.5);
+}
+
+p.info:before {
+    content: "▶️ ";
+}
+
+p.todo {
+    color: red;
+}
+
+p.todo:before {
+    content:"ToDo:";
+}
+
+@media (prefers-color-scheme: dark) {
+  input,
+  textarea,
+  select {
+      color: var(--text-color-neg);
+      background-color: lightgrey;
+      background-color: rgba(var(--main-bg-color-neg), 0.5);
+  }
+
+  input,
+  textarea {
+      border: 1px solid var(--main-bg-color-pos);
+  }
+
+  .form-field-hint {
+      color: var(--text-color-neg);
+  }
+
+  * :disabled {
+      opacity: .2;
+  }
+}
