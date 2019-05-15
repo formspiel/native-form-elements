@@ -1,3 +1,4 @@
+// https://dommagnifi.co/2016-05-16-basic-class-toggle-with-vanilla-js/
 
 var arr = document.getElementsByClassname("js-add-style js-change-layout");
 
