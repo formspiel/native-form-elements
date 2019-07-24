@@ -24,20 +24,17 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-   :focus {
-        outline-color: yellow;
-    }
-    body {
-        background-color: var(--main-bg-color-neg);
-        color: var(--main-bg-color-pos);
-    }
+  body {
+      background-color: var(--main-bg-color-neg);
+      color: var(--main-bg-color-pos);
+  }
   img {
-        opacity: .75;
-        transition: opacity .5s ease-in-out;
-    }
+      opacity: .75;
+      transition: opacity .5s ease-in-out;
+  }
   img:hover {
-        opacity: 1;
-    }
+      opacity: 1;
+  }
 }
 
 /* F O R M   B A S I C   S T Y L E S  */
