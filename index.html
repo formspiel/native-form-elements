@@ -11,11 +11,19 @@
   <meta name="theme-color" content="#fafafa">
 </head>
 <body>
-<!--
+
 <header>
-	<button id="js-add-style" type="submit">Add Style</button> <button id="js-change-layout" type="submit">Add Style</button>
+	<h1>Native Form Elements <em>Reloaded</em></h1>
+	<p>Edge and <abbr title="Internet Explorer">IE</abbr> are finally dead! Let's move for(m)ward and fix the web with beautiful and native-like applications. Form elements are key for applications and accessibility comes for free!</p>
+	<p>re-explore the possibilities of data input in the web. I'm sure we can rid of some half-baked input components.</p>
+	<h2>Design</h2>
+	<p>"Native form elements are ugly."I hear you saying. This is  not true! They are indented to deliver native look, feel &amp; behaviour an each and every platform. To deliver an web application that feels like a native app. Unfortunatly branding always was more important.</p>
+	<p>For form styling head over to <a href="#">XY framework</a></p> or use the buttons to switch on some basic styling</p>
+	<p>ToDo: Radio Group with styles.</p>
+
+	<!-- Experiment: Colour temperature for this demo? Slider (for macOS) and result -->
 </header>
--->
+
 <p>For more details please visit <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/The_native_form_widgets">MDN The native form widgets</a></p>
 
 <fieldset>
@@ -76,7 +84,20 @@
 		<input type="password" id="pwd-dis" name="pwd-dis" disabled />
 	</div>
 	
-	<div class="form-field-wrapper">
+	<div class="form-field-wrapper not-available">
+		<p>Not available.</p>
+	</div>
+
+	<div class="form-field-wrapper not-available">
+		<p>Not available.</p>
+	</div>
+
+	<div class="form-field-wrapper not-available">
+		<p>Not available.</p>
+	</div>
+
+	<div class="form-field-wrapper not-available">
+		<p>Not available.</p>
 	</div>
 </fieldset>
 
@@ -206,7 +227,7 @@
 	</div>
 	<div class="form-field-wrapper">
 		<label for="textarea-ph-gb">Text Area with Placeholder</label>
-		<textarea id="textarea-ph-gb" name="textarea-ph-gb" placeholder="I'm the british Placeholder" lang="en_GB"></textarea>
+		<textarea id="textarea-ph-gb" name="textarea-ph-gb" placeholder="Brexit it is! Eventually." lang="en_GB"></textarea>
 	</div>
 	<div class="form-field-wrapper">
 		<label for="textarea-ph-za">Text Area with Placeholder</label>
@@ -607,6 +628,18 @@
 		<span class="form-field-hint" id="hash-02">I'm the hint</span>
 	</div>
 
+</fieldset>
+
+<fieldset>
+	<legend>Slider</legend>
+
+	<div class="form-field-wrapper">
+		<form oninput="range-slider-std-output.value=parseInt(range-slider-std.value)">
+			<label for="range-slider-std">Slider</label>
+			<input id="range-slider-std" name="range-slider-std" type="range" value="50" />
+			<output name="range-slider-std-output">0</output>
+		</form>
+	</div>
 </fieldset>
 
 <fieldset>

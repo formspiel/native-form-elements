@@ -1,0 +1,8 @@
+ fieldset {
+        border: 1px solid var(--text-color-pos)
+    }
+
+
+@media (prefers-color-scheme: dark) {
+    border-color: var(--text-color-pos)
+}
