@@ -1,137 +1,99 @@
 :root {
-  --color-bg: rgb(240,240,240);
-  --color-text: rgba(41, 41, 41, 1);
-  --color-link: rgb(100, 100, 100);
-
-  --alpha: 0.5;
-  /* background-color: rgba(var(--color), var(--alpha)); */
+  font-family: system-ui, sans-serif;
 }
 
-@supports (color: color(p3 0 0 0)) {
 
-    :root {
-        --color-bg: color(p3 1.0 0 0); /* 100% red in the P3 color space */
-    }
-
+/*  = = = = = = = = = = VARIABLES: Colours = = = = = = = = = =*/
+:root {
+  --color-bg-01:      hsl(359,0%,90%);
+  --color-bg-02:      hsl(359,0%,80%);
+  --color-text:       hsl(359,0%,20%);
+  --color-link:       hsl(359,0%,40%);
+  --color-focus:      hsl(359,10%,90%);
 }
+
 
 @media (prefers-color-scheme: dark) {
 
-    :root {
-        --color-bg: rgb(41, 41, 41);
-        --color-text: rgb(240,240,240);
-    }
+  :root {
+    --color-bg-01:    hsl(359,0%,20%);
+    --color-bg-02:    hsl(359,0%,25%);
+    --color-text:     hsl(359,0%,90%);
+    --color-link:     hsl(359,0%,70%);
+    --color-focus:    hsl(359,10%,40%);
+  }
+
 }
 
 @media (forced-colors) {
 
-    :root {
-        --color-bg: highlightText;
+  :root {
+    --color-bg-01:    Canvas;
+    --color-bg-02:    Canvas;
+    --color-text:  CanvasText;
+    --color-link:  LinkText;
+    --color-text--disabled: GrayText;
+  }
 
-        /* https://css-tricks.com/css-variables-calc-rgb-enforcing-high-contrast-colors/
-        rgba(
-            calc(var(--accessible-color) * -1),
-            calc(var(--accessible-color) * -1),
-            calc(var(--accessible-color) * -1),
-            0.25
-        )
-        */
-
-        /* https://css-tricks.com/reverse-text-color-mix-blend-mode/
-        */
-    }
-
-}
-
-html {
-    font-family: sans-serif;
 }
 
 body {
-    background-color: var(--color-bg);
-    color: var(--color-text);
+  background-color: var(--color-bg-01);
+  color: var(--color-text);
 }
 
 a {
-    color: var(--color-link);
-}
-
-@media (prefers-color-scheme: dark) {
-    :focus {
-        outline-color: yellow; /* TODO */
-    }
-
-  img {
-      opacity: .75;
-      transition: opacity .5s ease-in-out;
-  }
-  img:hover {
-      opacity: 1;
-  }
+  color: var(--color-link);
 }
 
 /* F O R M   B A S I C   S T Y L E S  */
-label {
-    display: block;
-}
+label { }
 
 .form-field-wrapper {
-    margin-bottom: .5rem;
+  margin-bottom: .5rem;
 }
 
 .form-field-hint {
-    font-style: italic;
-    color: rgba(0,0,0,.5);
-}
-
-p.info:before {
-    content: "▶️ ";
-}
-
-p.todo {
-    color: red;
-}
-
-p.todo:before {
-    content:"ToDo:";
+  font-style: italic;
 }
 
 @media (prefers-color-scheme: dark) {
+  :focus {
+    outline-color: var(--color-focus);
+  }
+  
+  img {
+    opacity: .75;
+    transition: opacity .5s ease-in-out;
+  }
+    img:hover {
+      opacity: 1;
+    }
+
+  fieldset {}
+  
   input,
   textarea,
   select {
-      color: var(--color-text);
-      background-color: var(--color-bg);
-  }
-
-  fieldset {}
-
-  input,
-  textarea {
-      border: 1px solid var(--color-text);
-  }
-
-  .form-field-hint {
-      color: var(--color-text);
+    /* fix Safari dark behaviour */
+    color: var(--color-text);
+    background-color: var(--color-bg-02);
+    border: 1px solid var(--color-text); /* fix Safari Datetime */
   }
 
   * :disabled {
-      opacity: .2;
+    opacity: .2;
   }
 }
 
 /*  L A Y O U T  */
 
-@media (min-width: 800px) {
-    fieldset {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr); /* 7 columns */
-        grid-gap: .5rem;
-
-        margin: 0 0 1rem;
-    }
+@media (min-width: 500px) {
+    .grid-wrapper {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: 1fr;
+      margin: 0 0 1rem;
+  }
 }
-.form-field-wrapper {
-    background-color: rgba(124, 124, 124, 0.103);
-    /* align-items: flex-start; */
-}
+.grid-item-wrapper {}
