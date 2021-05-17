@@ -5,13 +5,14 @@
   <title>☺ Native Form Elements</title>
   <meta name="description" content="Native HTML Form Elements and its states" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
-	<link rel="stylesheet" href="style.css" />
-	<link as="script" rel="preload" href="behaviour.js" />
-
+  <link rel="stylesheet" href="style.css" />
   <meta name="theme-color" content="#fafafa" />
 </head>
 <body>
-
+	
+<nav class="nav-skip-links-wrapper" aria-label="Skip links">
+	<ul id="js-nav-skip-links"></ul>
+</nav>
 <header>
 	<h1>Native Form Elements <em>Reloaded</em></h1>
 	<p>Edge and <abbr title="Internet Explorer">IE</abbr> are finally dead! Let's move for(m)ward and fix the web with beautiful and native-like applications. Form elements are key for applications and accessibility comes for free!</p>
@@ -20,6 +21,8 @@
 	<p>"Native form elements are ugly." I hear you saying. This is not true! They are indented to deliver native look, feel &amp; behaviour an each and every platform. To deliver a web application that feels like a native app. Unfortunately branding always was more important.</p>
 	<p>For form styling head over to <a href="#">XY framework</a></p> or use the buttons to switch on some basic styling</p>
 	<p>ToDo: Radio Group with styles.</p> -->
+	<label for="design-01">Activate design 1</label>
+	<input type="checkbox" id="design-01" />
 
 	<!-- Experiment: Colour temperature for this demo? Slider (for macOS) and result -->
 </header>
@@ -697,6 +700,57 @@
 		</div>
 	</div>
 </fieldset>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cash/8.1.0/cash.min.js"></script>
+<script>
+$.fn.hasAttr = function (name) {
+	  return this.attr(name) !== undefined;
+	};
+	
+	// TODO
+	$.fn.labelAvailable = function (name) {
+	  return this.attr(name) !== undefined;
+	};
+	
+	$(function () {
+		$('html').removeClass('no-js');
+		
+	  $('legend')
+		.attr("tabindex", "-1")
+		.removeAttr("title")
+		.each(function () {
+		  var elementname = $(this).get(0).tagName.toLowerCase();
+		  var getElementAriaLabel = $(this).attr("aria-label");
+	
+		  if ($(this).hasAttr("aria-label")) {
+			//console.log("I've an aria label");
+			console.log("label " + elementname + " " + getElementAriaLabel);
+			var elementAriaLabel = getElementAriaLabel;
+		  } else {
+			console.log("no label for " + elementname);
+		  }
+	
+		  if ($(this).hasAttr("id")) {
+			// console.log("true");
+		  } else {
+			// console.log("false " + elementname);
+			$(this).attr("id", elementname);
+			$("#js-nav-skip-links").append(
+			  '<li><a href="#' +
+				elementname +
+				'">Go to ' +
+				elementname +
+				" " +
+				elementAriaLabel +
+				"</a></li>"
+			);
+		  }
+		});
+	});
+</script>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/cash/8.1.0/cash.min.js"></script>
+<link as="script" href="behaviour.js" /> -->
 
 </body>
 </html>
