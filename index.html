@@ -1,30 +1,41 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <title>☺ Native Form Elements</title>
   <meta name="description" content="Native HTML Form Elements and its states" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
   <link rel="stylesheet" href="style.css" />
+  <link as="script" rel="preload" href="behaviour.js" />
+
   <meta name="theme-color" content="#fafafa" />
+  <!--
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
+  
+  -->
 </head>
 <body>
 	
 <nav class="nav-skip-links-wrapper" aria-label="Skip links">
 	<ul id="js-nav-skip-links"></ul>
 </nav>
+
+
 <header>
 	<h1>Native Form Elements <em>Reloaded</em></h1>
-	<p>Edge and <abbr title="Internet Explorer">IE</abbr> are finally dead! Let's move for(m)ward and fix the web with beautiful and native-like applications. Form elements are key for applications and accessibility comes for free!</p>
-	<p>Re-explore the possibilities of data input in the web. I'm sure we can rid of some half-baked input components.</p>
-	<!-- <h2>Design</h2>
+	<p>Edge and <abbr title="Internet Explorer">IE</abbr> are finally dead! Let's move for(m)ward and fix the web with fast, secure and beautiful web applications. Form elements are key for applications and accessibility comes for free!</p>
+	<p>Re-explore the possibilities of data input in the web. I'm sure we can get rid of some half-baked input components out there.</p>
+	<!-- <img src="" alt="" loading="lazy">
+	<h2>Design</h2>
 	<p>"Native form elements are ugly." I hear you saying. This is not true! They are indented to deliver native look, feel &amp; behaviour an each and every platform. To deliver a web application that feels like a native app. Unfortunately branding always was more important.</p>
 	<p>For form styling head over to <a href="#">XY framework</a></p> or use the buttons to switch on some basic styling</p>
 	<p>ToDo: Radio Group with styles.</p> -->
 	<label for="design-01">Activate design 1</label>
-	<input type="checkbox" id="design-01" />
+	<input type="checkbox" id="design-01">
 
 	<!-- Experiment: Colour temperature for this demo? Slider (for macOS) and result -->
+	<button id="design">Toogle Basic Design</button>
 </header>
 
 <p>For more details please visit <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/The_native_form_widgets">MDN The native form widgets</a></p>
@@ -98,7 +109,7 @@
 		
 		<div class="grid-item-wrapper">
 			<label for="pwd-std">Password (required)</label>
-			<input type="password" id="pwd-std" name="pwd-std" required />
+			<input type="password" id="pwd-req" name="pwd--req" required />
 		</div>
 		
 		<div class="grid-item-wrapper">
@@ -114,44 +125,14 @@
 </fieldset>
 
 <fieldset>
-	<legend>Radio Group</legend>
+	<legend>One Time Password</legend>
 	
-	<p>What do you wanna do today?</p>
+	<p>Some text</p>
 	
 	<div class="grid-wrapper">
 		<div class="grid-item-wrapper">
-			<input type="radio" id="radio-1" name="activities" value="radio-1" />
-			<label for="radio-1">Option 1</label>
-		</div>
-		<div class="grid-item-wrapper">
-			<input type="radio" id="radio-2" name="activities" value="radio-2" checked />
-			<label for="radio-2">Option 2 (pre-checked)</label>
-		</div>
-		<div class="grid-item-wrapper not-available">
-			See details
-		</div>
-		<div class="grid-item-wrapper not-available">
-			Not available
-		</div>
-		<!-- <div class="grid-item-wrapper">
-			<input type="radio" id="radio-3" name="activities" value="radio-3" />
-			<label for="radio-3">Option 3</label>
-		</div> -->
-		<div class="grid-item-wrapper">
-			<input type="radio" id="radio-5" name="activities" value="radio-4" disabled>
-			<label for="radio-5">Option 5 (disabled)</label>
-		</div>
-	</div>
-	
-	<p>Choose! (required)</p>
-	<div class="grid-wrapper">
-		<div class="grid-item-wrapper">
-			<input type="radio" id="radio-yes" name="radio-choose" value="yes" required />
-			<label for="radio-yes">Yes</label>
-		</div>
-		<div class="grid-item-wrapper">
-			<input type="radio" id="radio-no" name="radio-choose" value="no" required />
-			<label for="radio-no">No</label>
+			<input id="otp-1" type="text" name="auth-token" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code" />
+			<label for="otp-1" title="One Time Code">OTP</label>
 		</div>
 	</div>
 </fieldset>
@@ -407,7 +388,7 @@
 			<label for="datalist-std">Select your Country</label>
 			<input list="country" name="datalist-std" aria-describedby="hash-02" id="datalist-std" />
 			<datalist id="country">
-				<option value="Afghanistan" />
+				<option value="Afghanistan">Option 1</option>
 				<option value="Albania" />
 				<option value="Algeria" />
 				<option value="American Samoa" />
@@ -647,7 +628,7 @@
 				<option value="Zambia" />
 				<option value="Zimbabwe" />
 			</datalist>
-			<span class="grid-item-hint" id="hash-02">I'm the hint</span>
+			<span class="grid-item-hint" id="hash-02">You can filter the list items by typing the first characters of the term.</span>
 		</div>
 	</div>
 
@@ -749,8 +730,7 @@ $.fn.hasAttr = function (name) {
 	});
 </script>
 
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/cash/8.1.0/cash.min.js"></script>
-<link as="script" href="behaviour.js" /> -->
+<!-- <link as="script" href="behaviour.js" /> -->
 
 </body>
 </html>

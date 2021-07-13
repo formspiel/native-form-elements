@@ -37,6 +37,17 @@
 
 }
 
+/* Display-P3 color, when supported. https://webkit.org/blog/10042/wide-gamut-color-in-css-with-display-p3/ */
+@supports (color: color(display-p3 1 1 1)) {
+  :root {
+    --bright-green: color(display-p3 0 1 0);
+  }
+}
+
+@media (color-gamut: p3) {
+    /* Do colorful stuff. */
+}
+
 body {
   background-color: var(--color-bg-01);
   color: var(--color-text);
@@ -88,7 +99,7 @@ label { }
 
 /*  L A Y O U T  */
 
-@media (min-width: 500px) {
+@media (min-width: 900px) {
     .grid-wrapper {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
