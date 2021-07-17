@@ -1,5 +1,6 @@
 :root {
   font-family: system-ui, sans-serif;
+  font-size: 100%;
 }
 
 
@@ -108,3 +109,20 @@ label { }
   }
 }
 .grid-item-wrapper {}
+
+
+body.design-01 {}
+body.design-01 label { }
+
+body.design-01 input,
+body.design-01 textarea,
+body.design-01 select {
+    font-size: 100%;
+  }
+
+
+body.design-02 label {
+  display: inline-block;
+  width: 12rem;
+  font-size: 100%;
+}
