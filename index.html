@@ -710,12 +710,13 @@
 		 *  looks for specific elements and built a list (select)
 		 */
 		
-		$('legend')
+		$('legend,h1,h2')
 		.attr("tabindex", "-1")
 		.removeAttr("title")
 		.each(function () {
 			var elementname = $(this).get(0).tagName.toLowerCase();
 			var getElementAriaLabel = $(this).attr("aria-label");
+			var getElementText = $(this).text();
 		
 			if ($(this).hasAttr("aria-label")) {
 				//console.log("I've an aria label");
@@ -724,6 +725,7 @@
 				var elementAriaLabel = getElementAriaLabel;
 			} else {
 				// console.log("no label for " + elementname);
+				var elementText = getElementText;
 			}
 			
 			if ($(this).hasAttr("id")) {
@@ -732,7 +734,7 @@
 				// console.log("false " + elementname);
 				$(this).attr("id", elementname);
 				$("#js-nav-skip-links").append(
-					'<li><a href="#' + elementname + '">Go to ' + elementname + " " + elementAriaLabel + "</a></li>"
+					'<li><a href="#' + elementname + '">Go to (' + elementname + ') ' + (elementAriaLabel!=null ? elementAriaLabel : (elementText!=null ? elementText : "undefined")) + "</a></li>"
 				);
 			}
 		});
@@ -742,28 +744,41 @@
 	
 	$(function() {
 		$('.design-option').on('change', function() {
+			cbid = this.id;
 			// when  id is test1 and name is A and it's checked
 			// if (this.id === "design-01" && this["name"] === "A" && this.checked) {
 			
-			// Cash: $(input).val ( value ) // => collection
-			if (this.id === "design-01" && this.checked) {
-				$('body').addClass("design-01");
-				//$(this).parent().addClass('selected');
+			if(this.checked) {
+				$('body').addClass(cbid);
 			} else {
-				$('body').removeClass("design-01");
+				$('body').removeClass(cbid);
 			}
 			
-			if (this.id === "design-02" && this.checked) {
-				//alert ("Checkbox Design 02 is checked");
-				$('body').addClass("design-02");
-			} else {
-				$('body').removeClass("design-02");
+			
+			
+			// Cash: $(input).val ( value ) // => collection
+			/*if (this.id === "design-01"){
+				if(this.checked) {
+					$('body').addClass("design-01");
+				} else {
+					$('body').removeClass("design-01");
+				}
 			}
-			if (this.id === "design-03" && this.checked) {
-				$('body').addClass("design-03");
-			} else {
-				$('body').removeClass("design-03");
+			
+			if (this.id === "design-02"){
+				if(this.checked) {
+					$('body').addClass("design-02");
+				} else {
+					$('body').removeClass("design-02");
+				}
 			}
+			if (this.id === "design-03"){
+				if(this.checked) {
+					$('body').addClass("design-03");
+				} else {
+					$('body').removeClass("design-03");
+				}
+			}*/
 		});
 	});
 	
