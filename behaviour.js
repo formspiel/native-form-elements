@@ -1,61 +1,75 @@
-// Simple prototype for a dynamic skip link navigation see https://codepen.io/formspiel/pen/XWpyLwO
-// Developer needed to make it ready to go live
+/*
+ * It looks like jQuery but it's Cash 💰
+ * You'll find the documentation on GitHub: https://github.com/fabiospampinato/cash#readme
+ *
+ * Thanks to Stephan M. for helping me out with JS
+ */
 
-// looks like jQuery but it's 'Cash' ;-) ==> https://github.com/fabiospampinato/cashs
 
-$(function () {
-    $('html').removeClass('no-js');
-    
-    // HELPER
+/*
+ * Helper Functions
+ * - find an attribute
+ */
     $.fn.hasAttr = function (name) {
         return this.attr(name) !== undefined;
     };
     
-    // DESIGN TOGGLE
-    $('#design-01').change(function(){
-        if($(this).is(":checked")) {
-            console.log("design 01 on");
-            $('html').addClass("design-01");
+    /* TODO: Convert skipt links to function
+    $.fn.dynamicSkiplinks = function (name) {
+        // 
+    };
+    */
+
+// Skip link function
+$(function () {
+    
+    // Basics
+    $('html').removeClass('no-js');
+    
+    /*
+     * Dynamic Skip Links
+     *  looks for specific elements and built a list (select)
+     */
+    
+    $('legend,h1,h2')
+    .attr('tabindex', '-1')
+    .removeAttr('title')
+    .each(function () {
+        var elementName = $(this).get(0).tagName.toLowerCase();
+        var getElementAriaLabel = $(this).attr('aria-label');
+        var getElementText = $(this).text();
+        
+        var noContent = 'hallo';
+    
+        if ($(this).hasAttr('aria-label')) {
+            var elementAriaLabel = getElementAriaLabel;
         } else {
-            console.log("design 01 OFF");
-            $('html').removeClass("design-01");
+            var elementText = getElementText;
+        }
+        
+        if ($(this).hasAttr('id')) {
+            // console.log("true");
+        } else {
+            $(this).attr('id', elementName);
+            $('#js-nav-skip-links').append(
+                '<li><a href="#' + elementName + '">Go to ' + (elementAriaLabel!=null ? elementAriaLabel : (elementText!=null ? elementText : 'undefined')) + " (" + elementName + ")" + "</a></li>"
+            );
         }
     });
     
-    // DYNAMIC SKIP LINKS
-    $('legend')
-    .attr("tabindex", "-1")
-    .removeAttr("title")
-    .each(function () {
-      var elementname = $(this).get(0).tagName.toLowerCase();
-      var getElementAriaLabel = $(this).attr("aria-label");
-
-      if ($(this).hasAttr("aria-label")) {
-        //console.log("I've an aria label");
-        console.log("label " + elementname + " " + getElementAriaLabel);
-        var elementAriaLabel = getElementAriaLabel;
-      } else {
-        console.log("no label for " + elementname);
-      }
-
-      if ($(this).hasAttr("id")) {
-        // console.log("true");
-      } else {
-        // console.log("false " + elementname);
-        $(this).attr("id", elementname);
-        $("#js-nav-skip-links").append(
-          '<li><a href="#' +
-            elementname +
-            '">Go to ' +
-            elementname +
-            " " +
-            elementAriaLabel +
-            "</a></li>"
-        );
-      }
+    /*
+     * Design options
+     * optional styles based on checkboxes
+     */
+    
+    $('.design-option').on('change', function() {
+        var elementId = this.id;
+        
+        if(this.checked) {
+            $('body').addClass(elementId);
+        } else {
+            $('body').removeClass(elementId);
+        }
     });
 
 });
-
-//.js-add-style
-//.js-change-layout

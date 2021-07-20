@@ -31,7 +31,7 @@
 	<p>For form styling head over to <a href="#">XY framework</a></p> or use the buttons to switch on some basic styling</p>
 	<p>ToDo: Radio Group with styles.</p> -->
 	<input class="design-option" type="checkbox" id="design-01">
-	<label for="design-01">(tbd) Streamline typography</label>
+	<label for="design-01">Streamline typography</label>
 	
 	<input class="design-option" type="checkbox" id="design-02">
 	<label for="design-02">(tbd) Basic borders and padding</label>
@@ -685,113 +685,10 @@
 </fieldset>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cash/8.1.0/cash.min.js"></script>
-<script>
-	/*
-	 * It looks like jQuery but it's Cash 💰
-	 * You'll find the documentation on GitHub: https://github.com/fabiospampinato/cash#readme
-	 */
-
-	// helper function to find an attribute
-	$.fn.hasAttr = function (name) {
-	  return this.attr(name) !== undefined;
-	};
-	
-	// Skip link function
-	
-	
-	
-	$(function () {
-		
-		// Basics
-		$('html').removeClass('no-js');
-		
-		/*
-		 * Dynamic Skip Links
-		 *  looks for specific elements and built a list (select)
-		 */
-		
-		$('legend,h1,h2')
-		.attr("tabindex", "-1")
-		.removeAttr("title")
-		.each(function () {
-			var elementname = $(this).get(0).tagName.toLowerCase();
-			var getElementAriaLabel = $(this).attr("aria-label");
-			var getElementText = $(this).text();
-		
-			if ($(this).hasAttr("aria-label")) {
-				//console.log("I've an aria label");
-				// console.log("label " + elementname + " " + getElementAriaLabel);
-				
-				var elementAriaLabel = getElementAriaLabel;
-			} else {
-				// console.log("no label for " + elementname);
-				var elementText = getElementText;
-			}
-			
-			if ($(this).hasAttr("id")) {
-				// console.log("true");
-			} else {
-				// console.log("false " + elementname);
-				$(this).attr("id", elementname);
-				$("#js-nav-skip-links").append(
-					'<li><a href="#' + elementname + '">Go to (' + elementname + ') ' + (elementAriaLabel!=null ? elementAriaLabel : (elementText!=null ? elementText : "undefined")) + "</a></li>"
-				);
-			}
-		});
-	});
-	
-	// Design options
-	
-	$(function() {
-		$('.design-option').on('change', function() {
-			cbid = this.id;
-			// when  id is test1 and name is A and it's checked
-			// if (this.id === "design-01" && this["name"] === "A" && this.checked) {
-			
-			if(this.checked) {
-				$('body').addClass(cbid);
-			} else {
-				$('body').removeClass(cbid);
-			}
-			
-			
-			
-			// Cash: $(input).val ( value ) // => collection
-			/*if (this.id === "design-01"){
-				if(this.checked) {
-					$('body').addClass("design-01");
-				} else {
-					$('body').removeClass("design-01");
-				}
-			}
-			
-			if (this.id === "design-02"){
-				if(this.checked) {
-					$('body').addClass("design-02");
-				} else {
-					$('body').removeClass("design-02");
-				}
-			}
-			if (this.id === "design-03"){
-				if(this.checked) {
-					$('body').addClass("design-03");
-				} else {
-					$('body').removeClass("design-03");
-				}
-			}*/
-		});
-	});
-	
-	/*$(function() {
-		$('#design-01').val ( 'checked' ) {
-			alert('hallo');
-		};
-	}*/
-</script>
-
-<!-- <link as="script" href="behaviour.js" /> -->
+<script src="behaviour.js"></script>
 
 <!-- TODO
+	• fix HTML errors with GitHub workflows
 	• Experiment: Colour temperature for this demo? Slider (for macOS) and result
  -->
 
