@@ -14,6 +14,15 @@
         return this.attr(name) !== undefined;
     };
     
+    //  https://stackoverflow.com/questions/26203453/jquery-generate-unique-ids
+    function Generator() {};
+        Generator.prototype.rand =  Math.floor(Math.random() * 26) + Date.now();
+        Generator.prototype.getId = function() {
+            return this.rand++;
+        };
+    
+    var idGen = new Generator();
+    
     /* TODO: Convert skipt links to function
     $.fn.dynamicSkiplinks = function (name) {
         // 
@@ -50,9 +59,11 @@ $(function () {
         if ($(this).hasAttr('id')) {
             // console.log("true");
         } else {
-            $(this).attr('id', elementName);
+            var elementUniqueId = idGen.getId();
+            
+            $(this).attr('id', elementUniqueId);
             $('#js-nav-skip-links').append(
-                '<li><a href="#' + elementName + '">Go to ' + (elementAriaLabel!=null ? elementAriaLabel : (elementText!=null ? elementText : 'undefined')) + " (" + elementName + ")" + "</a></li>"
+                '<li><a href="#' + elementUniqueId + '">Go to ' + (elementAriaLabel!=null ? elementAriaLabel : (elementText!=null ? elementText : 'undefined')) + " (" + elementName + ")" + "</a></li>"
             );
         }
     });
