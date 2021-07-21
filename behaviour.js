@@ -48,7 +48,7 @@ $(function () {
         var getElementAriaLabel = $(this).attr('aria-label');
         var getElementText = $(this).text();
         
-        var noContent = 'hallo';
+        var noContent = 'No label';
     
         if ($(this).hasAttr('aria-label')) {
             var elementAriaLabel = getElementAriaLabel;
@@ -63,7 +63,7 @@ $(function () {
             
             $(this).attr('id', elementUniqueId);
             $('#js-nav-skip-links').append(
-                '<li><a href="#' + elementUniqueId + '">Go to ' + (elementAriaLabel!=null ? elementAriaLabel : (elementText!=null ? elementText : 'undefined')) + " (" + elementName + ")" + "</a></li>"
+                '<li><a href="#' + elementUniqueId + '">Go to ' + (elementAriaLabel!=null ? elementAriaLabel : (elementText!=null ? elementText : 'No label')) + " (" + elementName + ")" + "</a></li>"
             );
         }
     });
