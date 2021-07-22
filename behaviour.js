@@ -63,7 +63,7 @@ $(function () {
             
             $(this).attr('id', elementUniqueId);
             $('#js-nav-skip-links').append(
-                '<li><a href="#' + elementUniqueId + '">Go to ' + (elementAriaLabel!=null ? elementAriaLabel : (elementText!=null ? elementText : 'No label')) + " (" + elementName + ")" + "</a></li>"
+                '<li><a href="#' + elementUniqueId + '">Go to ' + (typeof elementAriaLabel !== 'undefined' ? elementAriaLabel : (elementText != '' ? elementText : noContent)) + " (" + elementName + ")" + "</a></li>"
             );
         }
     });
