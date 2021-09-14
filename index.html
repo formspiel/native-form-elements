@@ -181,6 +181,45 @@
 </fieldset>
 
 <fieldset>
+	<legend>Radio Button Group</legend>
+	
+	<p>What do you wanna do today?</p>
+	<p>Choose</p>
+	<div class="grid-wrapper">
+		<div class="grid-item-wrapper">
+			<input type="radio" id="radio-1" name="radio-example-1" value="radio-1" />
+			<label for="radio-1">Option 1</label>
+		</div>
+		<div class="grid-item-wrapper">
+			<input type="radio" id="radio-2" name="radio-example-1" value="radio-2" checked />
+			<label for="radio-2">Option 2 (pre-checked)</label>
+		</div>
+		<div class="grid-item-wrapper not-available">
+			Not available
+		</div>
+		<div class="grid-item-wrapper not-available">
+			Not available
+		</div>
+		<div class="grid-item-wrapper">
+			<input type="radio" id="radio-5" name="radio-example-1" value="radio-5" disabled>
+			<label for="radio-5">Option 5 (disabled)</label>
+		</div>
+	</div>
+	
+	<p>Choose (required)</p>
+	<div class="grid-wrapper">
+		<div class="grid-item-wrapper">
+			<input type="radio" id="radio-yes" name="radio-example-2" value="yes" required />
+			<label for="radio-yes">Yes</label>
+		</div>
+		<div class="grid-item-wrapper">
+			<input type="radio" id="radio-no" name="radio-example-2" value="no" required />
+			<label for="radio-no">No</label>
+		</div>
+	</div>
+</fieldset>
+
+<fieldset>
 	<legend>Textarea</legend>
 	
 	<div class="grid-wrapper">
@@ -264,8 +303,14 @@
 			</select>
 		</div>
 		
-		<div class="grid-item-wrapper not-available">
-			Not available
+		<div class="grid-item-wrapper">
+			<label for="dropdown-ro">Select (read-only-ish)</label>
+			<select id="dropdown-ro">
+				<option disabled value="">Please choose &hellip;</option>
+				<option disabled value="1">Option 1</option>
+				<option disabled selected value="2">Option 2</option>
+				<option disabled value="3">Option 3</option>
+			</select>
 		</div>
 		
 		<div class="grid-item-wrapper">
