@@ -28,12 +28,21 @@
         // 
     };
     */
+    
 
 // Skip link function
 $(function () {
     
     // Basics
     $('html').removeClass('no-js');
+    
+    // DEBUG
+    //if(window.location.href.includes('github')) {
+    if (document.location.href.indexOf('github') === -1) {
+        $('#design-01').attr('checked', true);
+        // $('#design-02').attr('checked', true);
+        // $('#design-03').attr('checked', true);
+    }
     
     /*
      * Dynamic Skip Links
