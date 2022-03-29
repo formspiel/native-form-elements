@@ -731,6 +731,45 @@
 	</div>
 </fieldset>
 
+<div role="group" aria-labelledby="idOfHeadline">
+	<h3 id="idOfHeadline">Checkbox Group</h3>>
+	
+	<p>What do you wanna do today?</p>
+	<p>Choose</p>
+	<div class="grid-wrapper">
+		<div class="grid-item-wrapper">
+			<input type="checkbox" id="aria-group-01" name="activities" value="check-1" />
+			<label for="aria-group-01">Option 1</label>
+		</div>
+		<div class="grid-item-wrapper">
+			<input type="checkbox" id="aria-group-02" name="activities" value="check-2" checked />
+			<label for="aria-group-02">Option 2 (pre-checked)</label>
+		</div>
+		<div class="grid-item-wrapper not-available">
+			Not available
+		</div>
+		<div class="grid-item-wrapper not-available">
+			Not available
+		</div>
+		<div class="grid-item-wrapper">
+			<input type="checkbox" id="aria-group-03" name="activities" value="option-4" disabled>
+			<label for="aria-group-03">Option 5 (disabled)</label>
+		</div>
+	</div>
+	
+	<p>Choose (required)</p>
+	<div class="grid-wrapper">
+		<div class="grid-item-wrapper">
+			<input type="checkbox" id="aria-group-check-yes" name="check-choose" value="yes" required />
+			<label for="aria-group-check-yes">Yes</label>
+		</div>
+		<div class="grid-item-wrapper">
+			<input type="checkbox" id="aria-group-check-no" name="check-choose" value="no" required />
+			<label for="aria-group-check-no">No</label>
+		</div>
+	</div>
+</div>
+
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cash/8.1.0/cash.min.js"></script>
 <script src="behaviour.js"></script>
