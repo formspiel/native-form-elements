@@ -770,14 +770,53 @@
 	</div>
 </div>
 
+<fieldset>
+	<legend><h3>Checkbox Group</h3></legend>
+	
+	<p>What do you wanna do today?</p>
+	<p>Choose</p>
+	<div class="grid-wrapper">
+		<div class="grid-item-wrapper">
+			<input type="checkbox" id="aria-group-04" name="activities" value="check-1" />
+			<label for="aria-group-04">Option 1</label>
+		</div>
+		<div class="grid-item-wrapper">
+			<input type="checkbox" id="aria-group-05" name="activities" value="check-2" checked />
+			<label for="aria-group-05">Option 2 (pre-checked)</label>
+		</div>
+		<div class="grid-item-wrapper not-available">
+			Not available
+		</div>
+		<div class="grid-item-wrapper not-available">
+			Not available
+		</div>
+		<div class="grid-item-wrapper">
+			<input type="checkbox" id="aria-group-06" name="activities" value="option-4" disabled>
+			<label for="aria-group-06">Option 5 (disabled)</label>
+		</div>
+	</div>
+	
+	<p>Choose (required)</p>
+	<div class="grid-wrapper">
+		<div class="grid-item-wrapper">
+			<input type="checkbox" id="aria-group-check-yes-2" name="check-choose" value="yes" required />
+			<label for="aria-group-check-yes-2">Yes</label>
+		</div>
+		<div class="grid-item-wrapper">
+			<input type="checkbox" id="aria-group-check-no-2" name="check-choose" value="no" required />
+			<label for="aria-group-check-no-2">No</label>
+		</div>
+	</div>
+</fieldset>
+
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cash/8.1.0/cash.min.js"></script>
 <script src="behaviour.js"></script>
 
 <!-- TODO
-	• fix HTML errors with GitHub workflows
-	• Experiment: Colour temperature for this demo? Slider (for macOS) and result
- -->
+  • fix HTML errors with GitHub workflows
+  • Experiment: Colour temperature for this demo? Slider (for macOS) and result
+-->
 
 </body>
 </html>
