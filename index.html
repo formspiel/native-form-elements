@@ -703,18 +703,55 @@
 
 <fieldset id="section-slider">
 	<legend>Slider</legend>
-	
+
 	<div class="grid-wrapper">
 		<div class="grid-item-wrapper">
-			<form oninput="this.elements['range-slider-std-output'].value = parseInt(this.elements['range-slider-std'].value)">
+			<form oninput="this.elements['range-slider-std-output'].value = this.elements['range-slider-std'].value">
 				<label for="range-slider-std">Volume</label>
 				<input id="range-slider-std" name="range-slider-std" type="range" value="50" />
-				<output name="range-slider-std-output">0</output>
+				<output name="range-slider-std-output">50</output>
 			</form>
 		</div>
-		
+
+		<div class="grid-item-wrapper">
+			<form oninput="this.elements['range-slider-pre-output'].value = this.elements['range-slider-pre'].value">
+				<label for="range-slider-pre">Volume</label>
+				<input id="range-slider-pre" name="range-slider-pre" type="range" value="75" />
+				<output name="range-slider-pre-output">75</output>
+			</form>
+		</div>
+
+		<div class="grid-item-wrapper">
+			<form oninput="this.elements['range-slider-req-output'].value = this.elements['range-slider-req'].value">
+				<label for="range-slider-req">Volume</label>
+				<input id="range-slider-req" name="range-slider-req" type="range" value="50" required />
+				<output name="range-slider-req-output">50</output>
+			</form>
+		</div>
+
 		<div class="grid-item-wrapper not-available">
 			Not available
+		</div>
+
+		<div class="grid-item-wrapper">
+			<label for="range-slider-dis">Volume</label>
+			<input id="range-slider-dis" name="range-slider-dis" type="range" value="50" disabled />
+			<output>50</output>
+		</div>
+	</div>
+
+	<h2>Variants</h2>
+	<div class="grid-wrapper">
+		<div class="grid-item-wrapper">
+			<label for="range-slider-list">Volume</label>
+			<input id="range-slider-list" name="range-slider-list" type="range" min="0" max="100" step="25" list="range-slider-marks" />
+			<datalist id="range-slider-marks">
+				<option value="0" label="Min"></option>
+				<option value="25" label="25"></option>
+				<option value="50" label="50"></option>
+				<option value="75" label="75"></option>
+				<option value="100" label="Max"></option>
+			</datalist>
 		</div>
 	</div>
 </fieldset>
