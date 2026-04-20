@@ -133,8 +133,37 @@ body.design-01 button {
   font-family: inherit;
 }
 
-body.design-02 label {
-  display: inline-block;
-  width: 12rem;
+/* Minimal Design — Allianz Blue accent */
+body.design-02 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]):not([type="file"]),
+body.design-02 textarea,
+body.design-02 select {
+  border: 1px solid var(--color-link);
+  border-radius: 4px;
+  padding: .375rem .5rem;
   font-size: 100%;
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+body.design-02 input:focus-visible,
+body.design-02 textarea:focus-visible,
+body.design-02 select:focus-visible,
+body.design-02 button:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+body.design-02 button,
+body.design-02 input[type="submit"],
+body.design-02 input[type="reset"],
+body.design-02 input[type="button"] {
+  background-color: var(--color-link);
+  color: var(--color-bg-01);
+  border: none;
+  border-radius: 4px;
+  padding: .375rem .75rem;
+  cursor: pointer;
+  font-size: 100%;
+  font-family: inherit;
 }

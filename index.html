@@ -31,6 +31,17 @@
 			<li><a href="#section-datalist">Datalist</a></li>
 			<li><a href="#section-slider">Slider</a></li>
 			<li><a href="#section-datetime">Datetime</a></li>
+			<li><a href="#section-email">Email</a></li>
+			<li><a href="#section-tel">Telephone</a></li>
+			<li><a href="#section-url">URL</a></li>
+			<li><a href="#section-number">Number</a></li>
+			<li><a href="#section-search">Search</a></li>
+			<li><a href="#section-color">Color</a></li>
+			<li><a href="#section-file">File</a></li>
+			<li><a href="#section-date">Date</a></li>
+			<li><a href="#section-time">Time</a></li>
+			<li><a href="#section-buttons">Buttons</a></li>
+			<li><a href="#section-aria-group">ARIA group</a></li>
 		</ol>
 	</details>
 </nav>
@@ -49,10 +60,7 @@
 	<label for="design-01">Streamline typography</label>
 	
 	<input class="design-option" type="checkbox" id="design-02">
-	<label for="design-02">(tbd) Basic borders and padding</label>
-	
-	<input class="design-option" type="checkbox" id="design-03">
-	<label for="design-03">(tbd) Basic design</label>
+	<label for="design-02">Minimal Design</label>
 </header>
 
 <p>For more details please visit <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/The_native_form_widgets">MDN The native form widgets</a></p>
@@ -190,6 +198,14 @@
 		<div class="grid-item-wrapper">
 			<input type="checkbox" id="check-no" name="check-choose" value="no" required />
 			<label for="check-no">No</label>
+		</div>
+	</div>
+
+	<h2>Indeterminate</h2>
+	<div class="grid-wrapper">
+		<div class="grid-item-wrapper">
+			<input type="checkbox" id="check-indeterminate" name="activities-indeterminate" value="indeterminate">
+			<label for="check-indeterminate">All options</label>
 		</div>
 	</div>
 </fieldset>
@@ -745,83 +761,320 @@
 	</div>
 </fieldset>
 
-<div role="group" aria-labelledby="idOfHeadline">
-	<h3 id="idOfHeadline">Checkbox Group</h3>
-	
-	<p>What do you wanna do today?</p>
-	<p>Choose</p>
+<fieldset id="section-email">
+	<legend>Email</legend>
 	<div class="grid-wrapper">
 		<div class="grid-item-wrapper">
-			<input type="checkbox" id="aria-group-01" name="activities" value="check-1" />
-			<label for="aria-group-01">Option 1</label>
+			<label for="email-std">Email address</label>
+			<input type="email" id="email-std" name="email-std" autocomplete="email" />
 		</div>
 		<div class="grid-item-wrapper">
-			<input type="checkbox" id="aria-group-02" name="activities" value="check-2" checked />
-			<label for="aria-group-02">Option 2</label>
-		</div>
-		<div class="grid-item-wrapper not-available">
-			Not available
-		</div>
-		<div class="grid-item-wrapper not-available">
-			Not available
+			<label for="email-pre">Email address</label>
+			<input type="email" id="email-pre" name="email-pre" value="name@example.com" autocomplete="email" />
 		</div>
 		<div class="grid-item-wrapper">
-			<input type="checkbox" id="aria-group-03" name="activities" value="option-4" disabled>
-			<label for="aria-group-03">Option 5</label>
-		</div>
-	</div>
-	
-	<p>Choose (required)</p>
-	<div class="grid-wrapper">
-		<div class="grid-item-wrapper">
-			<input type="checkbox" id="aria-group-check-yes" name="check-choose" value="yes" required />
-			<label for="aria-group-check-yes">Yes</label>
+			<label for="email-req">Email address</label>
+			<input type="email" id="email-req" name="email-req" required autocomplete="email" />
 		</div>
 		<div class="grid-item-wrapper">
-			<input type="checkbox" id="aria-group-check-no" name="check-choose" value="no" required />
-			<label for="aria-group-check-no">No</label>
-		</div>
-	</div>
-</div>
-
-<fieldset>
-	<legend><h3>Checkbox Group</h3></legend>
-	
-	<p>What do you wanna do today?</p>
-	<p>Choose</p>
-	<div class="grid-wrapper">
-		<div class="grid-item-wrapper">
-			<input type="checkbox" id="aria-group-04" name="activities" value="check-1" />
-			<label for="aria-group-04">Option 1</label>
+			<label for="email-ro">Email address</label>
+			<input type="email" id="email-ro" name="email-ro" value="name@example.com" readonly autocomplete="email" />
 		</div>
 		<div class="grid-item-wrapper">
-			<input type="checkbox" id="aria-group-05" name="activities" value="check-2" checked />
-			<label for="aria-group-05">Option 2</label>
-		</div>
-		<div class="grid-item-wrapper not-available">
-			Not available
-		</div>
-		<div class="grid-item-wrapper not-available">
-			Not available
-		</div>
-		<div class="grid-item-wrapper">
-			<input type="checkbox" id="aria-group-06" name="activities" value="option-4" disabled>
-			<label for="aria-group-06">Option 5</label>
-		</div>
-	</div>
-	
-	<p>Choose (required)</p>
-	<div class="grid-wrapper">
-		<div class="grid-item-wrapper">
-			<input type="checkbox" id="aria-group-check-yes-2" name="check-choose" value="yes" required />
-			<label for="aria-group-check-yes-2">Yes</label>
-		</div>
-		<div class="grid-item-wrapper">
-			<input type="checkbox" id="aria-group-check-no-2" name="check-choose" value="no" required />
-			<label for="aria-group-check-no-2">No</label>
+			<label for="email-dis">Email address</label>
+			<input type="email" id="email-dis" name="email-dis" disabled autocomplete="email" />
 		</div>
 	</div>
 </fieldset>
+
+<fieldset id="section-tel">
+	<legend>Telephone</legend>
+	<div class="grid-wrapper">
+		<div class="grid-item-wrapper">
+			<label for="tel-std">Phone number</label>
+			<input type="tel" id="tel-std" name="tel-std" autocomplete="tel" />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="tel-pre">Phone number</label>
+			<input type="tel" id="tel-pre" name="tel-pre" value="+1 234 567 8900" autocomplete="tel" />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="tel-req">Phone number</label>
+			<input type="tel" id="tel-req" name="tel-req" required autocomplete="tel" />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="tel-ro">Phone number</label>
+			<input type="tel" id="tel-ro" name="tel-ro" value="+1 234 567 8900" readonly autocomplete="tel" />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="tel-dis">Phone number</label>
+			<input type="tel" id="tel-dis" name="tel-dis" disabled autocomplete="tel" />
+		</div>
+	</div>
+</fieldset>
+
+<fieldset id="section-url">
+	<legend>URL</legend>
+	<div class="grid-wrapper">
+		<div class="grid-item-wrapper">
+			<label for="url-std">Website</label>
+			<input type="url" id="url-std" name="url-std" autocomplete="url" />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="url-pre">Website</label>
+			<input type="url" id="url-pre" name="url-pre" value="https://example.com" autocomplete="url" />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="url-req">Website</label>
+			<input type="url" id="url-req" name="url-req" required autocomplete="url" />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="url-ro">Website</label>
+			<input type="url" id="url-ro" name="url-ro" value="https://example.com" readonly autocomplete="url" />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="url-dis">Website</label>
+			<input type="url" id="url-dis" name="url-dis" disabled autocomplete="url" />
+		</div>
+	</div>
+</fieldset>
+
+<fieldset id="section-number">
+	<legend>Number</legend>
+	<div class="grid-wrapper">
+		<div class="grid-item-wrapper">
+			<label for="number-std">Quantity</label>
+			<input type="number" id="number-std" name="number-std" min="0" max="100" step="1" />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="number-pre">Quantity</label>
+			<input type="number" id="number-pre" name="number-pre" value="42" min="0" max="100" step="1" />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="number-req">Quantity</label>
+			<input type="number" id="number-req" name="number-req" required min="0" max="100" step="1" />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="number-ro">Quantity</label>
+			<input type="number" id="number-ro" name="number-ro" value="42" readonly min="0" max="100" step="1" />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="number-dis">Quantity</label>
+			<input type="number" id="number-dis" name="number-dis" disabled min="0" max="100" step="1" />
+		</div>
+	</div>
+</fieldset>
+
+<fieldset id="section-search">
+	<legend>Search</legend>
+	<div class="grid-wrapper">
+		<div class="grid-item-wrapper">
+			<label for="search-std">Search</label>
+			<input type="search" id="search-std" name="search-std" />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="search-pre">Search</label>
+			<input type="search" id="search-pre" name="search-pre" value="Search term" />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="search-req">Search</label>
+			<input type="search" id="search-req" name="search-req" required />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="search-ro">Search</label>
+			<input type="search" id="search-ro" name="search-ro" value="Search term" readonly />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="search-dis">Search</label>
+			<input type="search" id="search-dis" name="search-dis" disabled />
+		</div>
+	</div>
+</fieldset>
+
+<fieldset id="section-color">
+	<legend>Color</legend>
+	<div class="grid-wrapper">
+		<div class="grid-item-wrapper">
+			<label for="color-std">Favourite colour</label>
+			<input type="color" id="color-std" name="color-std" />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="color-pre">Favourite colour</label>
+			<input type="color" id="color-pre" name="color-pre" value="#003781" />
+		</div>
+		<div class="grid-item-wrapper not-available">
+			Not available
+		</div>
+		<div class="grid-item-wrapper not-available">
+			Not available
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="color-dis">Favourite colour</label>
+			<input type="color" id="color-dis" name="color-dis" disabled />
+		</div>
+	</div>
+</fieldset>
+
+<fieldset id="section-file">
+	<legend>File</legend>
+	<div class="grid-wrapper">
+		<div class="grid-item-wrapper">
+			<label for="file-std">Upload file</label>
+			<input type="file" id="file-std" name="file-std" />
+		</div>
+		<div class="grid-item-wrapper not-available">
+			Not available
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="file-req">Upload file</label>
+			<input type="file" id="file-req" name="file-req" required />
+		</div>
+		<div class="grid-item-wrapper not-available">
+			Not available
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="file-dis">Upload file</label>
+			<input type="file" id="file-dis" name="file-dis" disabled />
+		</div>
+	</div>
+</fieldset>
+
+<fieldset id="section-date">
+	<legend>Date</legend>
+	<div class="grid-wrapper">
+		<div class="grid-item-wrapper">
+			<label for="date-std">Date of birth</label>
+			<input type="date" id="date-std" name="date-std" />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="date-pre">Date of birth</label>
+			<input type="date" id="date-pre" name="date-pre" value="1990-01-15" />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="date-req">Date of birth</label>
+			<input type="date" id="date-req" name="date-req" required />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="date-ro">Date of birth</label>
+			<input type="date" id="date-ro" name="date-ro" value="1990-01-15" readonly />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="date-dis">Date of birth</label>
+			<input type="date" id="date-dis" name="date-dis" disabled />
+		</div>
+	</div>
+</fieldset>
+
+<fieldset id="section-time">
+	<legend>Time</legend>
+	<div class="grid-wrapper">
+		<div class="grid-item-wrapper">
+			<label for="time-std">Meeting time</label>
+			<input type="time" id="time-std" name="time-std" />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="time-pre">Meeting time</label>
+			<input type="time" id="time-pre" name="time-pre" value="14:30" />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="time-req">Meeting time</label>
+			<input type="time" id="time-req" name="time-req" required />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="time-ro">Meeting time</label>
+			<input type="time" id="time-ro" name="time-ro" value="14:30" readonly />
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="time-dis">Meeting time</label>
+			<input type="time" id="time-dis" name="time-dis" disabled />
+		</div>
+	</div>
+</fieldset>
+
+<fieldset id="section-buttons">
+	<legend>Buttons</legend>
+
+	<h2>Default</h2>
+	<div class="grid-wrapper">
+		<div class="grid-item-wrapper">
+			<button type="button">button</button>
+		</div>
+		<div class="grid-item-wrapper">
+			<button type="submit">button[submit]</button>
+		</div>
+		<div class="grid-item-wrapper">
+			<button type="reset">button[reset]</button>
+		</div>
+		<div class="grid-item-wrapper">
+			<input type="submit" value="input[submit]" />
+		</div>
+		<div class="grid-item-wrapper">
+			<input type="reset" value="input[reset]" />
+		</div>
+	</div>
+
+	<h2>Disabled</h2>
+	<div class="grid-wrapper">
+		<div class="grid-item-wrapper">
+			<button type="button" disabled>button</button>
+		</div>
+		<div class="grid-item-wrapper">
+			<button type="submit" disabled>button[submit]</button>
+		</div>
+		<div class="grid-item-wrapper">
+			<button type="reset" disabled>button[reset]</button>
+		</div>
+		<div class="grid-item-wrapper">
+			<input type="submit" value="input[submit]" disabled />
+		</div>
+		<div class="grid-item-wrapper">
+			<input type="reset" value="input[reset]" disabled />
+		</div>
+	</div>
+</fieldset>
+
+<section id="section-aria-group">
+	<h2>Grouping: ARIA <code>role="group"</code></h2>
+	<p>An alternative to <code>&lt;fieldset&gt;</code> + <code>&lt;legend&gt;</code>. The group label is provided by an element referenced with <code>aria-labelledby</code>.</p>
+	<div role="group" aria-labelledby="aria-group-heading">
+		<h3 id="aria-group-heading">Activities</h3>
+
+		<p>What do you wanna do today?</p>
+		<p>Choose</p>
+		<div class="grid-wrapper">
+			<div class="grid-item-wrapper">
+				<input type="checkbox" id="aria-group-01" name="activities" value="check-1" />
+				<label for="aria-group-01">Option 1</label>
+			</div>
+			<div class="grid-item-wrapper">
+				<input type="checkbox" id="aria-group-02" name="activities" value="check-2" checked />
+				<label for="aria-group-02">Option 2</label>
+			</div>
+			<div class="grid-item-wrapper not-available">
+				Not available
+			</div>
+			<div class="grid-item-wrapper not-available">
+				Not available
+			</div>
+			<div class="grid-item-wrapper">
+				<input type="checkbox" id="aria-group-03" name="activities" value="option-4" disabled>
+				<label for="aria-group-03">Option 5</label>
+			</div>
+		</div>
+
+		<p>Choose (required)</p>
+		<div class="grid-wrapper">
+			<div class="grid-item-wrapper">
+				<input type="checkbox" id="aria-group-check-yes" name="aria-check-choose" value="yes" required />
+				<label for="aria-group-check-yes">Yes</label>
+			</div>
+			<div class="grid-item-wrapper">
+				<input type="checkbox" id="aria-group-check-no" name="aria-check-choose" value="no" required />
+				<label for="aria-group-check-no">No</label>
+			</div>
+		</div>
+	</div>
+</section>
 
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cash/8.1.0/cash.min.js"></script>
