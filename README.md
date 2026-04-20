@@ -1,14 +1,15 @@
-# Native Form Fields
-The site nativeformelements.com is a great source to learn about the behaviour of native form fields. Unfortunately a lot of details are missing. This is proposal to update.
+# Native Form Elements
 
-The page is a grid with the states of the all available input fields.
+A static reference page for testing and consulting native HTML form element behaviour. Every element is shown in all its meaningful states — default, pre-filled, required, read-only, and disabled — so developers can experience the native behaviour using assistive technology and keyboard navigation.
 
-## Purpose
-First of all it is my test page for the work in the field of accessibility. I use it to learn the behaviour of native elements.
+**Stack:** HTML5, CSS custom properties, minimal JavaScript — no frameworks, no build tools.
 
-## Design
-The default of the page is without any design. Just a few basics for light &amp; dark mode as well as hight contrast mode.
+## Design tiers
 
-## ToDo
-* Design https://developer.mozilla.org/en-US/docs/Learn/Forms/Styling_web_forms
-* Integrating a form design system like https://purecss.io/forms/
+- **Default** — bare browser rendering, no CSS applied to form elements
+- **Streamline typography** — consistent font and font size applied to all form elements
+- **Minimal Design** — Allianz Blue accent colour, custom focus styles, padding and border-radius on form elements
+
+## Colour modes
+
+Light, dark, and forced-colours (high contrast) modes are supported. Colour contrast meets WCAG AAA (7:1) in all modes.
