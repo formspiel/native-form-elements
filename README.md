@@ -8,7 +8,7 @@ A static reference page for testing and consulting native HTML form element beha
 
 - **Default** — bare browser rendering, no CSS applied to form elements
 - **Streamline typography** — consistent font and font size applied to all form elements
-- **Minimal Design** — Allianz Blue accent colour, custom focus styles, padding and border-radius on form elements
+- **Minimal Design** — highlight colour, custom focus styles, padding and border-radius on form elements
 
 ## Colour modes
 
