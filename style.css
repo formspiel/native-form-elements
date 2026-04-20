@@ -149,7 +149,7 @@ body.design-01 button {
   font-family: inherit;
 }
 
-/* Minimal Design — Allianz Blue accent */
+/* Minimal Design — highlight colour accent */
 body.design-02 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]):not([type="file"]),
 body.design-02 textarea,
 body.design-02 select {

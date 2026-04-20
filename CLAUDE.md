@@ -66,7 +66,7 @@ Three tiers are switched by checkboxes in the header. The checkboxes apply CSS c
 - Currently `body.design-01 {}` and `body.design-01 label {}` are empty rule blocks — these are dead CSS and should be removed.
 
 ### Tier 2 — "Minimal Design" (`body.design-02`, formerly "Basic borders and padding")
-- Minimalistic design with **Allianz Blue (`#003781`)** as accent colour.
+- Minimalistic design with **highlight colour (`#003781`)** as accent colour.
 - Custom focus style: a clearly visible `outline` using the accent colour.
 - Padding, border-radius, and border on form elements.
 - This replaces both the old "Basic borders and padding" (design-02) and "Basic design" (design-03) checkboxes — consolidate into one.
@@ -329,7 +329,7 @@ For a best-practice reference page, adding `autocomplete` values where appropria
 12. Add missing input types (email, tel, url, number, search, color, file, date, time)
 13. Add `<button>` vs `<input type="submit/reset/button">` comparison section
 14. Add `indeterminate` checkbox state
-15. Complete "Minimal Design" tier (repair `design-basic.css`, rename, wire up Allianz blue)
+15. Complete "Minimal Design" tier (repair `design-basic.css`, rename, wire up highlight colour)
 16. Consolidate design-02 and design-03 checkboxes into one "Minimal Design" checkbox
 17. Add `<progress>` and `<meter>` sections
 
