@@ -1,65 +1,59 @@
 :root {
   font-family: system-ui, sans-serif;
   font-size: 100%;
+  accent-color: #003781;
+}
+
+@supports (font: -apple-system-body) {
+  body {
+    font: -apple-system-body;
+    font-family: system-ui, sans-serif;
+  }
 }
 
 
 /*  = = = = = = = = = = VARIABLES: Colours = = = = = = = = = =*/
 :root {
-  --color-bg-01:      hsl(359,0%,90%);
-  --color-bg-02:      hsl(359,0%,80%);
-  --color-text:       hsl(359,0%,20%);
-  --color-link:       hsl(359,0%,40%);
-  --color-focus:      hsl(359,10%,90%);
+  --color-bg-01:  #f5f5f5;
+  --color-bg-02:  #e8e8e8;
+  --color-text:   #111111;
+  --color-link:   #003781;
+  --color-focus:  hsl(220, 80%, 35%);
 }
 
-
 @media (prefers-color-scheme: dark) {
-
   :root {
-    --color-bg-01:    hsl(359,0%,20%);
-    --color-bg-02:    hsl(359,0%,25%);
-    --color-text:     hsl(359,0%,90%);
-    --color-link:     hsl(359,0%,70%);
-    --color-focus:    hsl(359,10%,40%);
+    --color-bg-01:  #1a1a1a;
+    --color-bg-02:  #242424;
+    --color-text:   #f0f0f0;
+    --color-link:   #7ab3e8;
+    --color-focus:  hsl(220, 80%, 70%);
   }
-
 }
 
 @media (forced-colors) {
-
   :root {
-    --color-bg-01:    Canvas;
-    --color-bg-02:    Canvas;
-    --color-text:  CanvasText;
-    --color-link:  LinkText;
+    --color-bg-01:          Canvas;
+    --color-bg-02:          Canvas;
+    --color-text:           CanvasText;
+    --color-link:           LinkText;
     --color-text--disabled: GrayText;
   }
-
 }
 
-/* Display-P3 color, when supported. https://webkit.org/blog/10042/wide-gamut-color-in-css-with-display-p3/ */
-@supports (color: color(display-p3 1 1 1)) {
-  :root {
-    --bright-green: color(display-p3 0 1 0);
-  }
-}
-
-@media (color-gamut: p3) {
-    /* Do colorful stuff. */
-}
 
 body {
   background-color: var(--color-bg-01);
   color: var(--color-text);
+  padding-inline: 1rem;
 }
 
 a {
   color: var(--color-link);
 }
 
-/* F O R M   B A S I C   S T Y L E S  */
-label { }
+
+/* F O R M   B A S I C   S T Y L E S */
 
 .form-field-wrapper {
   margin-bottom: .5rem;
@@ -70,20 +64,18 @@ label { }
 }
 
 @media (prefers-color-scheme: dark) {
-  :focus {
+  :focus-visible {
     outline-color: var(--color-focus);
   }
-  
+
   img {
     opacity: .75;
     transition: opacity .5s ease-in-out;
   }
-    img:hover {
-      opacity: 1;
-    }
+  img:hover {
+    opacity: 1;
+  }
 
-  fieldset {}
-  
   input,
   textarea,
   select {
@@ -93,36 +85,85 @@ label { }
     border: 1px solid var(--color-text); /* fix Safari Datetime */
   }
 
-  * :disabled {
+  *:disabled {
     opacity: .2;
   }
 }
 
+
+/*  N A V I G A T I O N  */
+
+nav details summary {
+  cursor: pointer;
+  font-size: smaller;
+  padding: .25rem 0;
+}
+
+nav details ol {
+  list-style: none;
+  padding: 0;
+  margin: .25rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem .75rem;
+  font-size: smaller;
+}
+
+
 /*  L A Y O U T  */
 
 @media (min-width: 900px) {
-    .grid-wrapper {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: 1fr;
-      margin: 0 0 1rem;
+  .grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    gap: 1rem;
+    margin: 0 0 1rem;
   }
 }
-.grid-item-wrapper {}
 
 
-body.design-01 {}
-body.design-01 label { }
+/*  D E S I G N   T I E R S  */
 
 body.design-01 input,
 body.design-01 textarea,
-body.design-01 select {
-    font-size: 100%;
-  }
-
-
-body.design-02 label {
-  display: inline-block;
-  width: 12rem;
+body.design-01 select,
+body.design-01 button {
   font-size: 100%;
+  font-family: inherit;
+}
+
+/* Minimal Design — Allianz Blue accent */
+body.design-02 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]):not([type="file"]),
+body.design-02 textarea,
+body.design-02 select {
+  border: 1px solid var(--color-link);
+  border-radius: 4px;
+  padding: .375rem .5rem;
+  font-size: 100%;
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+body.design-02 input:focus-visible,
+body.design-02 textarea:focus-visible,
+body.design-02 select:focus-visible,
+body.design-02 button:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+body.design-02 button,
+body.design-02 input[type="submit"],
+body.design-02 input[type="reset"],
+body.design-02 input[type="button"] {
+  background-color: var(--color-link);
+  color: var(--color-bg-01);
+  border: none;
+  border-radius: 4px;
+  padding: .375rem .75rem;
+  cursor: pointer;
+  font-size: 100%;
+  font-family: inherit;
 }

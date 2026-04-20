@@ -127,7 +127,8 @@ Replace the dynamic skip-link generator with a **static, always-visible `<nav>`*
 ```
 
 - Give every `<fieldset>` or section a stable, semantic `id`.
-- The nav should be compact (e.g. `font-size: smaller`, horizontal list on desktop, collapsed or scrollable on mobile).
+- The nav should be **collapsed by default** (e.g. a `<details>`/`<summary>` or a disclosure button) to preserve maximum space for the examples. It expands on demand.
+- On mobile a collapsed nav is essential; on desktop it can remain collapsed but should be easy to open.
 - This replaces the JS-generated skip link mechanism entirely and removes the Cash dependency for that feature.
 
 ---
