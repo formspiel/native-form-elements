@@ -1,8 +1,9 @@
- fieldset {
-        border: 1px solid var(--text-color-pos)
-    }
-
+fieldset {
+    border: 1px solid var(--color-text);
+}
 
 @media (prefers-color-scheme: dark) {
-    border-color: var(--text-color-pos)
+    fieldset {
+        border-color: var(--color-text);
+    }
 }

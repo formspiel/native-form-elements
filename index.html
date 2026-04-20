@@ -30,7 +30,6 @@
 	<p>"Native form elements are ugly." I hear you saying. This is not true! They are indented to deliver native look, feel &amp; behaviour an each and every platform. To deliver a web application that feels like a native app. Unfortunately branding always was more important.</p>
 	<p>For form styling head over to <a href="#">XY framework</a></p> or use the buttons to switch on some basic styling</p>
 	<p>ToDo: Radio Group with styles.</p> -->
-	<h2 title="hallo"></h2>
 	<input class="design-option" type="checkbox" id="design-01">
 	<label for="design-01">Streamline typography</label>
 	
@@ -93,7 +92,7 @@
 		
 		<div class="grid-item-wrapper">
 			<label for="textbox-pattern">Input Standard with Pattern</label>
-			<input type="text" id="textbox-pattern" name="part" pattern="[0-9]{3}" title="A part number is a digit followed by three uppercase letters." />
+			<input type="text" id="textbox-pattern" name="part" pattern="[0-9]{3}" title="Enter exactly three digits (0–9)." />
 		</div>
 	</div>
 </fieldset>
@@ -688,7 +687,7 @@
 	
 	<div class="grid-wrapper">
 		<div class="grid-item-wrapper">
-			<form oninput="range-slider-std-output.value=parseInt(range-slider-std.value)">
+			<form oninput="this.elements['range-slider-std-output'].value = parseInt(this.elements['range-slider-std'].value)">
 				<label for="range-slider-std">Slider</label>
 				<input id="range-slider-std" name="range-slider-std" type="range" value="50" />
 				<output name="range-slider-std-output">0</output>
