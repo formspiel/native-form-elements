@@ -126,7 +126,7 @@
 		
 		<div class="grid-item-wrapper">
 			<label for="pwd-req">Password</label>
-			<input type="password" id="pwd-req" name="pwd--req" required />
+			<input type="password" id="pwd-req" name="pwd-req" required />
 		</div>
 		
 		<div class="grid-item-wrapper">
@@ -285,7 +285,7 @@
 		</div>
 		<div class="grid-item-wrapper">
 			<label for="textarea-ph-za">Comment</label>
-			<textarea id="textarea-ph-za" name="textarea-ph-za" placeholder="I'm the South African Placeholder" lang="za"></textarea>
+			<textarea id="textarea-ph-za" name="textarea-ph-za" placeholder="I'm the South African Placeholder" lang="en-ZA"></textarea>
 		</div>
 	</div>
 </fieldset>
@@ -296,7 +296,7 @@
 	<div class="grid-wrapper">
 		<div class="grid-item-wrapper">
 			<label for="dropdown-std">Country</label>
-			<select id="dropdown-std">
+			<select id="dropdown-std" name="dropdown-std">
 				<option value="">Please choose &hellip;</option>
 				<option value="1">Option 1</option>
 				<option value="2">Option 2</option>
@@ -306,7 +306,7 @@
 		
 		<div class="grid-item-wrapper">
 			<label for="dropdown-pre">Country</label>
-			<select id="dropdown-pre">
+			<select id="dropdown-pre" name="dropdown-pre">
 				<option value="">Please choose &hellip;</option>
 				<option value="1">Option 1</option>
 				<option value="2" selected>Option 2</option>
@@ -316,7 +316,7 @@
 		
 		<div class="grid-item-wrapper">
 			<label for="dropdown-req">Country</label>
-			<select id="dropdown-req" required>
+			<select id="dropdown-req" name="dropdown-req" required>
 				<option value="">Please choose &hellip;</option>
 				<option value="1">Option 1</option>
 				<option value="2">Option 2</option>
@@ -326,7 +326,7 @@
 		
 		<div class="grid-item-wrapper">
 			<label for="dropdown-ro">Country</label>
-			<select id="dropdown-ro">
+			<select id="dropdown-ro" name="dropdown-ro">
 				<option disabled value="">Please choose &hellip;</option>
 				<option disabled value="1">Option 1</option>
 				<option disabled selected value="2">Option 2</option>
@@ -336,7 +336,7 @@
 		
 		<div class="grid-item-wrapper">
 			<label for="dropdown-dis">Country</label>
-			<select id="dropdown-dis" disabled>
+			<select id="dropdown-dis" name="dropdown-dis" disabled>
 				<option value="">Please choose &hellip;</option>
 				<option value="1">Option 1</option>
 				<option value="2">Option 2</option>
@@ -348,7 +348,7 @@
 	<div class="grid-wrapper">
 		<div class="grid-item-wrapper">
 			<label for="dropdown-multi">Countries</label>
-			<select id="dropdown-multi" multiple>
+			<select id="dropdown-multi" name="dropdown-multi" multiple>
 				<option value="">Please choose &hellip;</option>
 				<option value="1">Option 1</option>
 				<option value="2">Option 2</option>
@@ -364,7 +364,7 @@
 	<div class="grid-wrapper">
 		<div class="grid-item-wrapper">
 			<label for="dropdown-adv-std">Region</label>
-			<select id="dropdown-adv-std">
+			<select id="dropdown-adv-std" name="dropdown-adv-std">
 				<optgroup label="Group 1">
 					<option value="1">Option 1</option>
 					<option value="2">Option 2</option>
@@ -380,7 +380,7 @@
 		
 		<div class="grid-item-wrapper">
 			<label for="dropdown-adv-pre">Region</label>
-			<select id="dropdown-adv-pre">
+			<select id="dropdown-adv-pre" name="dropdown-adv-pre">
 				<optgroup label="Group 1">
 					<option value="1">Option 1</option>
 					<option value="2" selected>Option 2</option>
@@ -396,7 +396,7 @@
 		
 		<div class="grid-item-wrapper">
 			<label for="dropdown-adv-req">Region</label>
-			<select id="dropdown-adv-req" required>
+			<select id="dropdown-adv-req" name="dropdown-adv-req" required>
 				<optgroup label="Group 1">
 					<option value="1">Option 1</option>
 					<option value="2">Option 2</option>
@@ -416,7 +416,7 @@
 		
 		<div class="grid-item-wrapper">
 			<label for="dropdown-adv-dis">Region</label>
-			<select id="dropdown-adv-dis" disabled>
+			<select id="dropdown-adv-dis" name="dropdown-adv-dis" disabled>
 				<optgroup label="Group 1">
 					<option value="1">Option 1</option>
 					<option value="2">Option 2</option>
@@ -432,7 +432,7 @@
 	</div>
 	<div class="grid-item-wrapper">
 		<label for="dropdown-adv-dis-part">Region</label>
-		<select id="dropdown-adv-dis-part">
+		<select id="dropdown-adv-dis-part" name="dropdown-adv-dis-part">
 			<optgroup label="Group 1" disabled>
 				<option value="1">Option 1</option>
 				<option value="2">Option 2</option>
@@ -706,27 +706,21 @@
 
 	<div class="grid-wrapper">
 		<div class="grid-item-wrapper">
-			<form oninput="this.elements['range-slider-std-output'].value = this.elements['range-slider-std'].value">
-				<label for="range-slider-std">Volume</label>
-				<input id="range-slider-std" name="range-slider-std" type="range" value="50" />
-				<output name="range-slider-std-output">50</output>
-			</form>
+			<label for="range-slider-std">Volume</label>
+			<input id="range-slider-std" name="range-slider-std" type="range" value="50" />
+			<output for="range-slider-std" id="range-slider-std-output">50</output>
 		</div>
 
 		<div class="grid-item-wrapper">
-			<form oninput="this.elements['range-slider-pre-output'].value = this.elements['range-slider-pre'].value">
-				<label for="range-slider-pre">Volume</label>
-				<input id="range-slider-pre" name="range-slider-pre" type="range" value="75" />
-				<output name="range-slider-pre-output">75</output>
-			</form>
+			<label for="range-slider-pre">Volume</label>
+			<input id="range-slider-pre" name="range-slider-pre" type="range" value="75" />
+			<output for="range-slider-pre" id="range-slider-pre-output">75</output>
 		</div>
 
 		<div class="grid-item-wrapper">
-			<form oninput="this.elements['range-slider-req-output'].value = this.elements['range-slider-req'].value">
-				<label for="range-slider-req">Volume</label>
-				<input id="range-slider-req" name="range-slider-req" type="range" value="50" required />
-				<output name="range-slider-req-output">50</output>
-			</form>
+			<label for="range-slider-req">Volume</label>
+			<input id="range-slider-req" name="range-slider-req" type="range" value="50" required />
+			<output for="range-slider-req" id="range-slider-req-output">50</output>
 		</div>
 
 		<div class="grid-item-wrapper not-available">
@@ -736,7 +730,7 @@
 		<div class="grid-item-wrapper">
 			<label for="range-slider-dis">Volume</label>
 			<input id="range-slider-dis" name="range-slider-dis" type="range" value="50" disabled />
-			<output>50</output>
+			<output for="range-slider-dis">50</output>
 		</div>
 	</div>
 

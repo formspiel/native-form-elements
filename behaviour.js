@@ -26,4 +26,13 @@ $(function () {
         }
     });
 
+    // Slider outputs — keep output value in sync with range input
+    document.querySelectorAll('input[type="range"]').forEach(function (input) {
+        const output = document.getElementById(input.id + '-output');
+        if (!output) return;
+        input.addEventListener('input', function () {
+            output.value = input.value;
+        });
+    });
+
 });

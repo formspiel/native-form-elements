@@ -33,11 +33,10 @@
 
 @media (forced-colors) {
   :root {
-    --color-bg-01:          Canvas;
-    --color-bg-02:          Canvas;
-    --color-text:           CanvasText;
-    --color-link:           LinkText;
-    --color-text--disabled: GrayText;
+    --color-bg-01:  Canvas;
+    --color-bg-02:  Canvas;
+    --color-text:   CanvasText;
+    --color-link:   LinkText;
   }
 }
 
