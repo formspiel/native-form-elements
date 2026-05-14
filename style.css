@@ -185,6 +185,11 @@ body.design-02 select:disabled {
   border-color: color-mix(in srgb, var(--color-link) 30%, var(--color-bg-01));
 }
 
+body.design-02 progress,
+body.design-02 meter {
+  width: 100%;
+}
+
 body.design-02 fieldset,
 body.design-02 [role="group"] {
   border: 1px solid var(--color-link);

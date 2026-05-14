@@ -40,6 +40,8 @@
 			<li><a href="#section-file">File</a></li>
 			<li><a href="#section-date">Date</a></li>
 			<li><a href="#section-time">Time</a></li>
+			<li><a href="#section-progress">Progress</a></li>
+			<li><a href="#section-meter">Meter</a></li>
 			<li><a href="#section-buttons">Buttons</a></li>
 			<li><a href="#section-aria-group">ARIA group</a></li>
 		</ol>
@@ -262,34 +264,34 @@
 	<div class="grid-wrapper">
 		<div class="grid-item-wrapper">
 			<label for="textarea-std">Comment</label>
-			<textarea id="textarea-std" name="textarea"></textarea>
+			<textarea id="textarea-std" name="textarea-std"></textarea>
 		</div>
 		
 		<div class="grid-item-wrapper">
 			<label for="textarea-pre">Comment</label>
-			<textarea id="textarea-pre" name="textarea">Text area content</textarea>
+			<textarea id="textarea-pre" name="textarea-pre">Text area content</textarea>
 		</div>
 		
 		<div class="grid-item-wrapper">
 			<label for="textarea-req">Comment</label>
-			<textarea id="textarea-req" name="textarea" required></textarea>
+			<textarea id="textarea-req" name="textarea-req" required></textarea>
 		</div>
 		
 		<div class="grid-item-wrapper">
 			<label for="textarea-ro">Comment</label>
-			<textarea id="textarea-ro" name="textarea" readonly>Text area content</textarea>
+			<textarea id="textarea-ro" name="textarea-ro" readonly>Text area content</textarea>
 		</div>
 		
 		<div class="grid-item-wrapper">
 			<label for="textarea-dis">Comment</label>
-			<textarea id="textarea-dis" name="textarea" disabled>Text area content</textarea>
+			<textarea id="textarea-dis" name="textarea-dis" disabled>Text area content</textarea>
 		</div>
 	</div>
 	
 	<div class="grid-wrapper">
 		<div class="grid-item-wrapper">
 			<label for="textarea-ph">Comment</label>
-			<textarea id="textarea-ph" name="textarea" placeholder="Input field placeholder text"></textarea>
+			<textarea id="textarea-ph" name="textarea-ph" placeholder="Input field placeholder text"></textarea>
 		</div>
 		<div class="grid-item-wrapper">
 			<label for="textarea-ph-de">Kommentar</label>
@@ -1022,6 +1024,103 @@
 		<div class="grid-item-wrapper">
 			<label for="time-dis">Meeting time</label>
 			<input type="time" id="time-dis" name="time-dis" disabled />
+		</div>
+	</div>
+</fieldset>
+
+<fieldset id="section-progress">
+	<legend>Progress</legend>
+
+	<div class="grid-wrapper">
+		<div class="grid-item-wrapper">
+			<label for="progress-std">File transfer</label>
+			<progress id="progress-std"></progress>
+		</div>
+
+		<div class="grid-item-wrapper">
+			<label for="progress-pre">File transfer</label>
+			<progress id="progress-pre" value="75" max="100"></progress>
+		</div>
+
+		<div class="grid-item-wrapper not-available">
+			Not available
+		</div>
+
+		<div class="grid-item-wrapper not-available">
+			Not available
+		</div>
+
+		<div class="grid-item-wrapper not-available">
+			Not available
+		</div>
+	</div>
+
+	<h2>Variants</h2>
+	<div class="grid-wrapper">
+		<div class="grid-item-wrapper">
+			<label for="progress-0">Upload</label>
+			<progress id="progress-0" value="0" max="100"></progress>
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="progress-25">Upload</label>
+			<progress id="progress-25" value="25" max="100"></progress>
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="progress-50">Upload</label>
+			<progress id="progress-50" value="50" max="100"></progress>
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="progress-75">Upload</label>
+			<progress id="progress-75" value="75" max="100"></progress>
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="progress-100">Upload</label>
+			<progress id="progress-100" value="100" max="100"></progress>
+		</div>
+	</div>
+</fieldset>
+
+<fieldset id="section-meter">
+	<legend>Meter</legend>
+
+	<div class="grid-wrapper">
+		<div class="grid-item-wrapper">
+			<label for="meter-std">Storage</label>
+			<meter id="meter-std" value="0.5"></meter>
+		</div>
+
+		<div class="grid-item-wrapper">
+			<label for="meter-pre">Storage</label>
+			<meter id="meter-pre" value="75" min="0" max="100" low="33" high="66" optimum="100"></meter>
+		</div>
+
+		<div class="grid-item-wrapper not-available">
+			Not available
+		</div>
+
+		<div class="grid-item-wrapper not-available">
+			Not available
+		</div>
+
+		<div class="grid-item-wrapper not-available">
+			Not available
+		</div>
+	</div>
+
+	<h2>Variants — value zones</h2>
+	<p>The <code>low</code>, <code>high</code>, and <code>optimum</code> attributes define three zones. Browsers colour the bar green, yellow, or red based on how far the current value is from the optimum zone.</p>
+	<div class="grid-wrapper">
+		<div class="grid-item-wrapper">
+			<label for="meter-good">Score (optimum zone)</label>
+			<meter id="meter-good" value="80" min="0" max="100" low="33" high="66" optimum="100"></meter>
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="meter-mid">Score (sub-optimum zone)</label>
+			<meter id="meter-mid" value="50" min="0" max="100" low="33" high="66" optimum="100"></meter>
+		</div>
+		<div class="grid-item-wrapper">
+			<label for="meter-low">Score (furthest zone)</label>
+			<meter id="meter-low" value="15" min="0" max="100" low="33" high="66" optimum="100"></meter>
 		</div>
 	</div>
 </fieldset>

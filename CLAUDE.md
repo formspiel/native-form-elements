@@ -14,7 +14,7 @@ A static reference page for testing native HTML form element behaviour. Every el
 
 ```
 index.html      — all markup; one page, no templates
-style.css       — all styles; ~730 lines, structured in named sections
+style.css       — all styles; ~740 lines, structured in named sections
 behaviour.js    — ~60 lines of vanilla JS; no dependencies
 ```
 
@@ -127,7 +127,7 @@ Defined on `body.design-03`, overridden in dark mode:
 
 Every section has a stable `id` used by the nav:
 
-`section-text`, `section-password`, `section-otp`, `section-checkbox`, `section-radio`, `section-textarea`, `section-select`, `section-select-advanced`, `section-datalist`, `section-slider`, `section-datetime`, `section-email`, `section-tel`, `section-url`, `section-number`, `section-search`, `section-color`, `section-file`, `section-date`, `section-time`, `section-buttons`, `section-aria-group`
+`section-text`, `section-password`, `section-otp`, `section-checkbox`, `section-radio`, `section-textarea`, `section-select`, `section-select-advanced`, `section-datalist`, `section-slider`, `section-datetime`, `section-email`, `section-tel`, `section-url`, `section-number`, `section-search`, `section-color`, `section-file`, `section-date`, `section-time`, `section-progress`, `section-meter`, `section-buttons`, `section-aria-group`
 
 ---
 
@@ -174,16 +174,14 @@ Falls back to `system-ui, sans-serif` until loaded.
 
 | # | Title | Status |
 |---|-------|--------|
-| [#1](https://github.com/formspiel/native-form-elements/issues/1) | Add `accent-color` CSS | **Done** — `accent-color: #003781` in `:root` |
 | [#2](https://github.com/formspiel/native-form-elements/issues/2) | Add modern theme switch (CSS style queries) | Open |
-| [#3](https://github.com/formspiel/native-form-elements/issues/3) | Add ARIA `role="group"` example | **Partially done** — section exists at `#section-aria-group` |
+| [#9](https://github.com/formspiel/native-form-elements/issues/9) | Review forced-colors (high contrast) CSS support | Open |
+| [#10](https://github.com/formspiel/native-form-elements/issues/10) | Investigate multi-language textarea voice switching on macOS 26 | Open |
+| [#11](https://github.com/formspiel/native-form-elements/issues/11) | Set up CI: HTML validation on push | Open |
 
 ---
 
 ## Known remaining work
 
 - Issue #2: CSS style queries theme switch
-- `<progress>` and `<meter>` sections not yet added
-- `<details>`/`<summary>` and `<dialog>` sections not yet added
-- CI workflow (`actions/checkout@v4`, HTML validation, supply `GITHUB_TOKEN`) not yet set up
-- `name="textarea"` reused across all five textarea elements (harmless for a reference page, incorrect for real form submission)
+- Issue #11: CI workflow not yet set up
