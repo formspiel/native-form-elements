@@ -459,3 +459,33 @@ body.design-03 input[type="reset"]:focus-visible {
     outline-offset: 0px;
   }
 }
+
+/* Radio checked + disabled — lighter inner dot, mirrors checkbox treatment */
+body.design-03 input[type="radio"]:checked:disabled::after {
+  background-color: color-mix(in srgb, var(--color-link) 30%, var(--color-bg-01));
+}
+
+/* Range slider disabled state */
+body.design-03 input[type="range"]:disabled {
+  background: color-mix(in srgb, var(--color-link) 15%, var(--color-bg-02));
+  cursor: not-allowed;
+}
+
+body.design-03 input[type="range"]:disabled::-webkit-slider-thumb {
+  background-color: color-mix(in srgb, var(--color-link) 30%, var(--color-bg-01));
+  cursor: not-allowed;
+}
+
+body.design-03 input[type="range"]:disabled::-moz-range-thumb {
+  background-color: color-mix(in srgb, var(--color-link) 30%, var(--color-bg-01));
+  cursor: not-allowed;
+}
+
+/* Dark mode: custom controls handle disabled via color-mix — restore opacity */
+@media (prefers-color-scheme: dark) {
+  body.design-03 input[type="checkbox"]:disabled,
+  body.design-03 input[type="radio"]:disabled,
+  body.design-03 input[type="range"]:disabled {
+    opacity: 1;
+  }
+}
