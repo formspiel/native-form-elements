@@ -4,7 +4,7 @@
 
 A static reference page for testing native HTML form element behaviour. Every element is shown in all meaningful states (default, pre-filled, required, read-only, disabled) so developers can experience native rendering with assistive technology and keyboard navigation.
 
-**Live site:** nativeformelements.com  
+**Inspired by:** nativeformelements.com (separate project, not connected)  
 **Repo:** github.com/formspiel/native-form-elements  
 **Stack:** HTML5, CSS custom properties, vanilla JS — no frameworks, no build tools, no npm
 
@@ -136,7 +136,7 @@ Every section has a stable `id` used by the nav:
 Runs on `DOMContentLoaded`. No external dependencies. Five responsibilities:
 
 1. **`no-js` removal** — removes `no-js` from `<html>` so CSS can respond.
-2. **Local dev default** — enables design-01 automatically when hostname ≠ `nativeformelements.com`.
+2. **Local dev default** — enables design-01 automatically on every load. The `hostname !== 'nativeformelements.com'` guard is inherited from the inspiration project; it is always `true` here and can be removed or replaced if a production hostname is ever set.
 3. **Design tier toggles** — `.design-option` checkboxes toggle matching body class; design-03 auto-enables design-02.
 4. **Slider outputs** — syncs `<output>` value to paired `<input type="range">` on `input` event.
 5. **Footer contributors** — fetches `api.github.com/repos/formspiel/native-form-elements/contributors`, builds `<a>` nodes with `textContent` (no innerHTML). Fails silently.
@@ -178,10 +178,3 @@ Falls back to `system-ui, sans-serif` until loaded.
 | [#9](https://github.com/formspiel/native-form-elements/issues/9) | Review forced-colors (high contrast) CSS support | Open |
 | [#10](https://github.com/formspiel/native-form-elements/issues/10) | Investigate multi-language textarea voice switching on macOS 26 | Open |
 | [#11](https://github.com/formspiel/native-form-elements/issues/11) | Set up CI: HTML validation on push | Open |
-
----
-
-## Known remaining work
-
-- Issue #2: CSS style queries theme switch
-- Issue #11: CI workflow not yet set up
