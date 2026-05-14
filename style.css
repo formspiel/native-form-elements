@@ -193,3 +193,61 @@ body.design-02 input[type="checkbox"]:indeterminate {
   outline: 2px solid var(--color-link);
   outline-offset: 2px;
 }
+
+
+/*  T Y P O G R A P H Y   S C A L E  (Tier 1+) */
+
+body:is(.design-01, .design-02) h1 {
+  font-size: 1.75rem;
+}
+
+body:is(.design-01, .design-02) legend {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+body:is(.design-01, .design-02) h2 {
+  font-size: .875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+
+/*  S P A C I N G  (Tier 1+) */
+
+body:is(.design-01, .design-02) main {
+  margin-top: 1.5rem;
+}
+
+body:is(.design-01, .design-02) fieldset,
+body:is(.design-01, .design-02) section {
+  margin-bottom: 3rem;
+}
+
+
+/*  C O L U M N   H E A D E R S  */
+
+.column-headers {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  body:is(.design-01, .design-02) .column-headers {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--color-bg-01);
+    padding-block: .375rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-bg-02);
+    font-size: .75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    opacity: .6;
+  }
+}
