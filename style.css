@@ -194,6 +194,17 @@ body.design-02 input[type="checkbox"]:indeterminate {
   outline-offset: 2px;
 }
 
+body.design-02 fieldset,
+body.design-02 [role="group"] {
+  border: 1px solid var(--color-link);
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+body.design-02 [role="group"] > h3 {
+  margin-block-start: 0;
+}
+
 
 /*  T Y P O G R A P H Y   S C A L E  (Tier 1+) */
 
@@ -201,7 +212,8 @@ body:is(.design-01, .design-02) h1 {
   font-size: 1.75rem;
 }
 
-body:is(.design-01, .design-02) legend {
+body:is(.design-01, .design-02) legend,
+body:is(.design-01, .design-02) [role="group"] > h3 {
   font-size: 1.25rem;
   font-weight: 600;
 }
@@ -509,11 +521,11 @@ body.design-03 {
   --d3-pink:  #db2777;  /* complementary pink/magenta */
   --d3-amber: #d97706;  /* warm amber — opposite to blue on colour wheel */
 
-  /* Interactive gradient: blue → violet → sky */
+  /* Interactive gradient: blue -> violet -> sky */
   --d3-grad: linear-gradient(135deg, var(--d3-a), var(--d3-b), var(--d3-c));
-  /* Heading gradient: deep navy → violet → pink */
+  /* Heading gradient: deep navy -> violet -> pink */
   --d3-heading-grad: linear-gradient(135deg, #0c2a6e, var(--d3-b), var(--d3-pink));
-  /* Fieldset accent bar: warm → pink → violet (top to bottom) */
+  /* Fieldset accent bar: warm -> pink -> violet (top to bottom) */
   --d3-bar-grad: linear-gradient(to bottom, var(--d3-amber), var(--d3-pink), var(--d3-b));
 
   --d3-surf: color-mix(in srgb, var(--d3-b) 6%, transparent);
@@ -536,8 +548,9 @@ body.design-03 {
   }
 }
 
-/* Fieldset — glass card, no default border */
-body.design-03 fieldset {
+/* Fieldset + ARIA group — glass card, no default border */
+body.design-03 fieldset,
+body.design-03 [role="group"] {
   border: none;
   border-radius: 16px;
   background: var(--d3-surf);
@@ -548,8 +561,9 @@ body.design-03 fieldset {
   transition: background .3s ease, box-shadow .3s ease;
 }
 
-/* Gradient left-accent bar — warm amber → pink → violet */
-body.design-03 fieldset::before {
+/* Gradient left-accent bar — warm amber -> pink -> violet */
+body.design-03 fieldset::before,
+body.design-03 [role="group"]::before {
   content: '';
   position: absolute;
   inset-inline-start: 0;
@@ -561,33 +575,38 @@ body.design-03 fieldset::before {
   transition: opacity .25s ease, inset-block .25s ease;
 }
 
-/* Fieldset glows when any child is focused */
-body.design-03 fieldset:has(:focus-visible) {
+/* Glows when any child is focused */
+body.design-03 fieldset:has(:focus-visible),
+body.design-03 [role="group"]:has(:focus-visible) {
   background: var(--d3-surf-active);
   box-shadow: 0 6px 28px var(--d3-shadow-active), inset 0 1px 0 rgba(255,255,255,.15);
 }
 
-body.design-03 fieldset:has(:focus-visible)::before {
+body.design-03 fieldset:has(:focus-visible)::before,
+body.design-03 [role="group"]:has(:focus-visible)::before {
   opacity: 1;
   inset-block: .5rem;
 }
 
-/* Titan One for all headings and legend — bold slab serif display face */
+/* Titan One for all headings, legend, and ARIA group heading */
 body.design-03 h1,
 body.design-03 h2,
-body.design-03 legend {
+body.design-03 legend,
+body.design-03 [role="group"] > h3 {
   font-family: 'Titan One', system-ui, sans-serif;
   font-weight: 400; /* Titan One is single-weight */
 }
 
-/* Legend — heading gradient text */
-body.design-03 legend {
+/* Legend + ARIA group heading — heading gradient text */
+body.design-03 legend,
+body.design-03 [role="group"] > h3 {
   letter-spacing: -.01em;
   background: var(--d3-heading-grad);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: #0c2a6e;
+  margin-block-start: 0;
 }
 
 /* H1 page title — heading gradient text */
