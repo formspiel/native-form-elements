@@ -136,7 +136,7 @@ Every section has a stable `id` used by the nav:
 Runs on `DOMContentLoaded`. No external dependencies. Five responsibilities:
 
 1. **`no-js` removal** — removes `no-js` from `<html>` so CSS can respond.
-2. **Local dev default** — enables design-01 automatically on every load. The `hostname !== 'nativeformelements.com'` guard is inherited from the inspiration project; it is always `true` here and can be removed or replaced if a production hostname is ever set.
+2. **Default tier** — enables design-01 automatically on every load.
 3. **Design tier toggles** — `.design-option` checkboxes toggle matching body class; design-03 auto-enables design-02.
 4. **Slider outputs** — syncs `<output>` value to paired `<input type="range">` on `input` event.
 5. **Footer contributors** — fetches `api.github.com/repos/formspiel/native-form-elements/contributors`, builds `<a>` nodes with `textContent` (no innerHTML). Fails silently.

@@ -2,13 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.documentElement.classList.remove('no-js');
 
-    // Enable Streamline typography by default on local builds
-    if (window.location.hostname !== 'nativeformelements.com') {
-        const design01 = document.getElementById('design-01');
-        if (design01) {
-            design01.checked = true;
-            document.body.classList.add('design-01');
-        }
+    const design01 = document.getElementById('design-01');
+    if (design01) {
+        design01.checked = true;
+        document.body.classList.add('design-01');
     }
 
     // Indeterminate checkboxes — must be set via JS, cannot be done in HTML
