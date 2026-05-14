@@ -39,4 +39,24 @@ document.addEventListener('DOMContentLoaded', () => {
         input.addEventListener('input', () => { output.value = input.value; });
     });
 
+    // Footer — render contributors from GitHub API
+    const contributorsEl = document.getElementById('js-contributors');
+    if (contributorsEl) {
+        fetch('https://api.github.com/repos/formspiel/native-form-elements/contributors')
+            .then(r => r.json())
+            .then(list => {
+                if (!Array.isArray(list)) return;
+                list.forEach((c, i) => {
+                    if (i > 0) contributorsEl.appendChild(document.createTextNode(', '));
+                    const a = document.createElement('a');
+                    a.href = c.html_url;
+                    a.textContent = c.login;
+                    a.target = '_blank';
+                    a.rel = 'noopener noreferrer';
+                    contributorsEl.appendChild(a);
+                });
+            })
+            .catch(() => {});
+    }
+
 });

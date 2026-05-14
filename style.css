@@ -714,6 +714,16 @@ body.design-03 input[type="range"][list] {
   accent-color: var(--d3-a);
 }
 
+/*  F O O T E R  */
+
+footer {
+  margin-top: 4rem;
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--color-bg-02);
+  font-size: .875rem;
+  opacity: .7;
+}
+
 /* Hint — give it room to breathe */
 body.design-03 .form-field-hint {
   margin-top: .5rem;
