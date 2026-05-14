@@ -489,3 +489,169 @@ body.design-03 input[type="range"]:disabled::-moz-range-thumb {
     opacity: 1;
   }
 }
+
+
+/*  S H O W C A S E   —   E X P E R I M E N T A L   L A Y E R  */
+/* Bold visual design. Modern browsers only. AA contrast minimum. */
+
+body.design-03 {
+  --d3-a: #003781;
+  --d3-b: #0066cc;
+  --d3-c: #00b4d8;
+  --d3-grad: linear-gradient(135deg, var(--d3-a), var(--d3-b), var(--d3-c));
+  --d3-surf: color-mix(in srgb, var(--d3-a) 6%, transparent);
+  --d3-surf-active: color-mix(in srgb, var(--d3-b) 11%, transparent);
+  --d3-shadow: color-mix(in srgb, var(--d3-a) 14%, transparent);
+  --d3-shadow-active: color-mix(in srgb, var(--d3-b) 28%, transparent);
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  body.design-03 {
+    --d3-a: #7ab3e8;
+    --d3-b: #4facde;
+    --d3-c: #00d4ff;
+    --d3-surf: color-mix(in srgb, var(--d3-a) 8%, transparent);
+    --d3-surf-active: color-mix(in srgb, var(--d3-b) 14%, transparent);
+    --d3-shadow: color-mix(in srgb, var(--d3-a) 18%, transparent);
+    --d3-shadow-active: color-mix(in srgb, var(--d3-b) 35%, transparent);
+  }
+}
+
+/* Fieldset — glass card, no default border */
+body.design-03 fieldset {
+  border: none;
+  border-radius: 16px;
+  background: var(--d3-surf);
+  box-shadow: 0 2px 12px var(--d3-shadow), inset 0 1px 0 rgba(255,255,255,.1);
+  padding: 1.5rem;
+  padding-inline-start: 2rem;
+  position: relative;
+  transition: background .3s ease, box-shadow .3s ease;
+}
+
+/* Gradient left-accent bar */
+body.design-03 fieldset::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block: 1.25rem;
+  width: 4px;
+  border-radius: 0 4px 4px 0;
+  background: var(--d3-grad);
+  opacity: .4;
+  transition: opacity .25s ease, inset-block .25s ease;
+}
+
+/* Fieldset glows when any child is focused */
+body.design-03 fieldset:has(:focus-visible) {
+  background: var(--d3-surf-active);
+  box-shadow: 0 6px 28px var(--d3-shadow-active), inset 0 1px 0 rgba(255,255,255,.15);
+}
+
+body.design-03 fieldset:has(:focus-visible)::before {
+  opacity: 1;
+  inset-block: .5rem;
+}
+
+/* Legend — gradient text */
+body.design-03 legend {
+  font-weight: 700;
+  letter-spacing: -.01em;
+  background: var(--d3-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--d3-a);
+}
+
+/* H2 section labels — gradient text */
+body.design-03 h2 {
+  background: var(--d3-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--d3-a);
+}
+
+/* Text inputs — rounder corners */
+body.design-03 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]):not([type="file"]):not([type="submit"]):not([type="reset"]):not([type="button"]),
+body.design-03 textarea,
+body.design-03 select {
+  border-radius: 8px;
+}
+
+/* Multi-colour glow focus ring */
+body.design-03 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]):not([type="file"]):not([type="submit"]):not([type="reset"]):not([type="button"]):focus-visible,
+body.design-03 textarea:focus-visible,
+body.design-03 select:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--d3-b) 40%, transparent),
+              0 0 20px color-mix(in srgb, var(--d3-c) 30%, transparent);
+}
+
+/* Checkbox — gradient fill */
+body.design-03 input[type="checkbox"]:checked {
+  background-color: transparent;
+  background-image: var(--d3-grad);
+}
+
+body.design-03 input[type="checkbox"]:indeterminate {
+  background-color: transparent;
+  background-image: var(--d3-grad);
+}
+
+/* Radio — gradient inner dot */
+body.design-03 input[type="radio"]:checked::after {
+  background-color: transparent;
+  background-image: var(--d3-grad);
+}
+
+/* Range — gradient track */
+body.design-03 input[type="range"] {
+  background: var(--d3-grad);
+  height: 5px;
+}
+
+/* Range thumb — gradient, slightly larger */
+body.design-03 input[type="range"]::-webkit-slider-thumb {
+  background-color: transparent;
+  background-image: var(--d3-grad);
+  width: 1.375rem;
+  height: 1.375rem;
+  box-shadow: 0 2px 8px var(--d3-shadow);
+}
+
+body.design-03 input[type="range"]::-moz-range-thumb {
+  background-color: transparent;
+  background-image: var(--d3-grad);
+  width: 1.375rem;
+  height: 1.375rem;
+  box-shadow: 0 2px 8px var(--d3-shadow);
+}
+
+/* Buttons — gradient background */
+body.design-03 button,
+body.design-03 input[type="submit"],
+body.design-03 input[type="reset"],
+body.design-03 input[type="button"] {
+  background-color: transparent;
+  background-image: var(--d3-grad);
+  border-radius: 8px;
+  letter-spacing: .02em;
+}
+
+body.design-03 button:not(:disabled):hover,
+body.design-03 input[type="submit"]:not(:disabled):hover,
+body.design-03 input[type="reset"]:not(:disabled):hover {
+  background-color: transparent;
+  background-image: linear-gradient(135deg,
+    color-mix(in srgb, var(--d3-a) 75%, white),
+    color-mix(in srgb, var(--d3-b) 75%, white),
+    color-mix(in srgb, var(--d3-c) 75%, white));
+}
+
+/* Hint — give it room to breathe */
+body.design-03 .form-field-hint {
+  margin-top: .5rem;
+  font-size: .875rem;
+}
