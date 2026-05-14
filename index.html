@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet"></noscript>
 
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f5f5">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a1a1a">
@@ -723,19 +724,19 @@
 		<div class="grid-item-wrapper">
 			<label for="range-slider-std">Volume</label>
 			<input id="range-slider-std" name="range-slider-std" type="range" value="50" />
-			<output for="range-slider-std" id="range-slider-std-output">50</output>
+			<output for="range-slider-std" id="range-slider-std-output" aria-live="polite">50</output>
 		</div>
 
 		<div class="grid-item-wrapper">
 			<label for="range-slider-pre">Volume</label>
 			<input id="range-slider-pre" name="range-slider-pre" type="range" value="75" />
-			<output for="range-slider-pre" id="range-slider-pre-output">75</output>
+			<output for="range-slider-pre" id="range-slider-pre-output" aria-live="polite">75</output>
 		</div>
 
 		<div class="grid-item-wrapper">
 			<label for="range-slider-req">Volume</label>
 			<input id="range-slider-req" name="range-slider-req" type="range" value="50" required />
-			<output for="range-slider-req" id="range-slider-req-output">50</output>
+			<output for="range-slider-req" id="range-slider-req-output" aria-live="polite">50</output>
 		</div>
 
 		<div class="grid-item-wrapper not-available">

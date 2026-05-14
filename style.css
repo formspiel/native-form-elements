@@ -1,7 +1,14 @@
+/*  = = = = = = = = = = VARIABLES & BASE = = = = = = = = = =*/
 :root {
   font-family: system-ui, sans-serif;
   font-size: 100%;
   accent-color: #003781;
+
+  --color-bg-01:  #f5f5f5;
+  --color-bg-02:  #e8e8e8;
+  --color-text:   #111111;
+  --color-link:   #003781;
+  --color-focus:  hsl(220, 80%, 35%);
 }
 
 @supports (font: -apple-system-body) {
@@ -9,16 +16,6 @@
     font: -apple-system-body;
     font-family: system-ui, sans-serif;
   }
-}
-
-
-/*  = = = = = = = = = = VARIABLES: Colours = = = = = = = = = =*/
-:root {
-  --color-bg-01:  #f5f5f5;
-  --color-bg-02:  #e8e8e8;
-  --color-text:   #111111;
-  --color-link:   #003781;
-  --color-focus:  hsl(220, 80%, 35%);
 }
 
 @media (prefers-color-scheme: dark) {

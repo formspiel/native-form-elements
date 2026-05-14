@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
 
     document.documentElement.classList.remove('no-js');
 
@@ -12,13 +12,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Indeterminate checkboxes — must be set via JS, cannot be done in HTML
-    ['check-indeterminate', 'check-indeterminate-dis'].forEach(function (id) {
+    ['check-indeterminate', 'check-indeterminate-dis'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.indeterminate = true;
     });
 
     // Design tier toggles — apply/remove body class matching checkbox id
-    document.querySelectorAll('.design-option').forEach(function (checkbox) {
+    document.querySelectorAll('.design-option').forEach(checkbox => {
         checkbox.addEventListener('change', function () {
             document.body.classList.toggle(this.id, this.checked);
             // Showcase tier requires Minimal Design as its base
@@ -33,12 +33,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Slider outputs — keep output value in sync with range input
-    document.querySelectorAll('input[type="range"]').forEach(function (input) {
+    document.querySelectorAll('input[type="range"]').forEach(input => {
         const output = document.getElementById(input.id + '-output');
         if (!output) return;
-        input.addEventListener('input', function () {
-            output.value = input.value;
-        });
+        input.addEventListener('input', () => { output.value = input.value; });
     });
 
 });
