@@ -329,7 +329,14 @@ body.design-03 input[type="checkbox"]:checked::after {
 
 body.design-03 input[type="checkbox"]:indeterminate {
   background-color: var(--color-link);
-  outline: none;
+}
+
+/* Focus ring for custom checkbox and radio — explicit outline with offset */
+body.design-03 input[type="checkbox"]:focus-visible,
+body.design-03 input[type="radio"]:focus-visible {
+  outline: 3px solid var(--color-link);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--color-link) 20%, transparent);
 }
 
 body.design-03 input[type="checkbox"]:indeterminate::after {
@@ -513,7 +520,6 @@ body.design-03 {
   --d3-surf-active: color-mix(in srgb, var(--d3-b) 11%, transparent);
   --d3-shadow: color-mix(in srgb, var(--d3-a) 14%, transparent);
   --d3-shadow-active: color-mix(in srgb, var(--d3-pink) 22%, transparent);
-  font-family: 'Space Grotesk', system-ui, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -676,11 +682,6 @@ body.design-03 input[type="reset"]:not(:disabled):hover {
     color-mix(in srgb, var(--d3-a) 75%, white),
     color-mix(in srgb, var(--d3-b) 75%, white),
     color-mix(in srgb, var(--d3-c) 75%, white));
-}
-
-/* Password — system font for bullet glyphs; Space Grotesk lacks them */
-body.design-03 input[type="password"] {
-  font-family: caption, system-ui, sans-serif;
 }
 
 /* Hint — give it room to breathe */
