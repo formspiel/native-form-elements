@@ -495,26 +495,38 @@ body.design-03 input[type="range"]:disabled::-moz-range-thumb {
 /* Bold visual design. Modern browsers only. AA contrast minimum. */
 
 body.design-03 {
-  --d3-a: #003781;
-  --d3-b: #0066cc;
-  --d3-c: #00b4d8;
+  /* Palette — a/b/c drive interactive elements; pink + amber expand to warm tones */
+  --d3-a: #0055cc;      /* royal blue */
+  --d3-b: #6d28d9;      /* vivid violet */
+  --d3-c: #0ea5e9;      /* sky blue */
+  --d3-pink:  #db2777;  /* complementary pink/magenta */
+  --d3-amber: #d97706;  /* warm amber — opposite to blue on colour wheel */
+
+  /* Interactive gradient: blue → violet → sky */
   --d3-grad: linear-gradient(135deg, var(--d3-a), var(--d3-b), var(--d3-c));
-  --d3-surf: color-mix(in srgb, var(--d3-a) 6%, transparent);
+  /* Heading gradient: deep navy → violet → pink */
+  --d3-heading-grad: linear-gradient(135deg, #0c2a6e, var(--d3-b), var(--d3-pink));
+  /* Fieldset accent bar: warm → pink → violet (top to bottom) */
+  --d3-bar-grad: linear-gradient(to bottom, var(--d3-amber), var(--d3-pink), var(--d3-b));
+
+  --d3-surf: color-mix(in srgb, var(--d3-b) 6%, transparent);
   --d3-surf-active: color-mix(in srgb, var(--d3-b) 11%, transparent);
   --d3-shadow: color-mix(in srgb, var(--d3-a) 14%, transparent);
-  --d3-shadow-active: color-mix(in srgb, var(--d3-b) 28%, transparent);
+  --d3-shadow-active: color-mix(in srgb, var(--d3-pink) 22%, transparent);
   font-family: 'Space Grotesk', system-ui, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   body.design-03 {
-    --d3-a: #7ab3e8;
-    --d3-b: #4facde;
-    --d3-c: #00d4ff;
-    --d3-surf: color-mix(in srgb, var(--d3-a) 8%, transparent);
+    --d3-a: #60a5fa;     /* lighter blue */
+    --d3-b: #a78bfa;     /* lighter violet */
+    --d3-c: #38bdf8;     /* lighter sky */
+    --d3-pink:  #f472b6; /* lighter pink */
+    --d3-amber: #fcd34d; /* lighter amber */
+    --d3-surf: color-mix(in srgb, var(--d3-b) 8%, transparent);
     --d3-surf-active: color-mix(in srgb, var(--d3-b) 14%, transparent);
     --d3-shadow: color-mix(in srgb, var(--d3-a) 18%, transparent);
-    --d3-shadow-active: color-mix(in srgb, var(--d3-b) 35%, transparent);
+    --d3-shadow-active: color-mix(in srgb, var(--d3-pink) 30%, transparent);
   }
 }
 
@@ -530,7 +542,7 @@ body.design-03 fieldset {
   transition: background .3s ease, box-shadow .3s ease;
 }
 
-/* Gradient left-accent bar */
+/* Gradient left-accent bar — warm amber → pink → violet */
 body.design-03 fieldset::before {
   content: '';
   position: absolute;
@@ -538,7 +550,7 @@ body.design-03 fieldset::before {
   inset-block: 1.25rem;
   width: 4px;
   border-radius: 0 4px 4px 0;
-  background: var(--d3-grad);
+  background: var(--d3-bar-grad);
   opacity: .4;
   transition: opacity .25s ease, inset-block .25s ease;
 }
@@ -554,24 +566,40 @@ body.design-03 fieldset:has(:focus-visible)::before {
   inset-block: .5rem;
 }
 
-/* Legend — gradient text */
+/* Titan One for all headings and legend — bold slab serif display face */
+body.design-03 h1,
+body.design-03 h2,
 body.design-03 legend {
-  font-weight: 700;
-  letter-spacing: -.01em;
-  background: var(--d3-grad);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: var(--d3-a);
+  font-family: 'Titan One', system-ui, sans-serif;
+  font-weight: 400; /* Titan One is single-weight */
 }
 
-/* H2 section labels — gradient text */
-body.design-03 h2 {
-  background: var(--d3-grad);
+/* Legend — heading gradient text */
+body.design-03 legend {
+  letter-spacing: -.01em;
+  background: var(--d3-heading-grad);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: var(--d3-a);
+  color: #0c2a6e;
+}
+
+/* H1 page title — heading gradient text */
+body.design-03 h1 {
+  background: var(--d3-heading-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #0c2a6e;
+}
+
+/* H2 section labels — heading gradient text */
+body.design-03 h2 {
+  background: var(--d3-heading-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #0c2a6e;
 }
 
 /* Text inputs — rounder corners */
@@ -648,6 +676,11 @@ body.design-03 input[type="reset"]:not(:disabled):hover {
     color-mix(in srgb, var(--d3-a) 75%, white),
     color-mix(in srgb, var(--d3-b) 75%, white),
     color-mix(in srgb, var(--d3-c) 75%, white));
+}
+
+/* Password — system font for bullet glyphs; Space Grotesk lacks them */
+body.design-03 input[type="password"] {
+  font-family: caption, system-ui, sans-serif;
 }
 
 /* Hint — give it room to breathe */
