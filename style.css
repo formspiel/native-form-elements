@@ -684,6 +684,26 @@ body.design-03 input[type="reset"]:not(:disabled):hover {
     color-mix(in srgb, var(--d3-c) 75%, white));
 }
 
+/* Disabled range thumb — remove gradient, show muted colour */
+body.design-03 input[type="range"]:disabled::-webkit-slider-thumb {
+  background-image: none;
+  background-color: color-mix(in srgb, var(--color-text) 25%, var(--color-bg-02));
+  box-shadow: none;
+}
+
+body.design-03 input[type="range"]:disabled::-moz-range-thumb {
+  background-image: none;
+  background-color: color-mix(in srgb, var(--color-text) 25%, var(--color-bg-02));
+  box-shadow: none;
+}
+
+/* Datalist variant — revert to native rendering so tick marks are visible */
+body.design-03 input[type="range"][list] {
+  all: revert;
+  width: 100%;
+  accent-color: var(--d3-a);
+}
+
 /* Hint — give it room to breathe */
 body.design-03 .form-field-hint {
   margin-top: .5rem;
