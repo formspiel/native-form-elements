@@ -21,6 +21,14 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.design-option').forEach(function (checkbox) {
         checkbox.addEventListener('change', function () {
             document.body.classList.toggle(this.id, this.checked);
+            // Showcase tier requires Minimal Design as its base
+            if (this.id === 'design-03' && this.checked) {
+                const design02 = document.getElementById('design-02');
+                if (design02 && !design02.checked) {
+                    design02.checked = true;
+                    document.body.classList.add('design-02');
+                }
+            }
         });
     });
 

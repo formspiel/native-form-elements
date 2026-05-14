@@ -251,3 +251,211 @@ body:is(.design-01, .design-02) section {
     opacity: .6;
   }
 }
+
+
+/*  S H O W C A S E   D E S I G N  (Tier 3 — design-03)  */
+/* Builds on Minimal Design (design-02), enabled automatically via JS.  */
+/* Uses: :has(), @starting-style, field-sizing, custom range/checkbox/radio */
+
+/* Smooth transitions on text-like inputs */
+body.design-03 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]):not([type="file"]):not([type="submit"]):not([type="reset"]):not([type="button"]),
+body.design-03 textarea,
+body.design-03 select {
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+/* Replace outline focus ring with glow */
+body.design-03 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]):not([type="file"]):not([type="submit"]):not([type="reset"]):not([type="button"]):focus-visible,
+body.design-03 textarea:focus-visible,
+body.design-03 select:focus-visible {
+  outline: none;
+  border-color: var(--color-link);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-link) 25%, transparent);
+}
+
+/* :has() — label highlights when its paired input is focused */
+body.design-03 label:has(+ input:focus-visible),
+body.design-03 label:has(+ select:focus-visible),
+body.design-03 label:has(+ textarea:focus-visible) {
+  color: var(--color-link);
+  transition: color .2s ease;
+}
+
+/* field-sizing — textarea grows with content */
+body.design-03 textarea {
+  field-sizing: content;
+  min-block-size: 3lh;
+  resize: none;
+}
+
+/* Custom checkbox */
+body.design-03 input[type="checkbox"] {
+  appearance: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  border: 2px solid var(--color-link);
+  border-radius: 3px;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+  flex-shrink: 0;
+  transition: background-color .15s ease, border-color .15s ease;
+}
+
+body.design-03 input[type="checkbox"]:checked {
+  background-color: var(--color-link);
+}
+
+body.design-03 input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  inset-inline-start: 3px;
+  inset-block-start: 0px;
+  width: 5px;
+  height: 9px;
+  border: 2px solid var(--color-bg-01);
+  border-block-start: none;
+  border-inline-start: none;
+  transform: rotate(45deg);
+  transition: opacity .15s ease;
+}
+
+@starting-style {
+  body.design-03 input[type="checkbox"]:checked::after {
+    opacity: 0;
+  }
+}
+
+body.design-03 input[type="checkbox"]:indeterminate {
+  background-color: var(--color-link);
+  outline: none;
+}
+
+body.design-03 input[type="checkbox"]:indeterminate::after {
+  content: '';
+  position: absolute;
+  inset-inline-start: 2px;
+  inset-block-start: 50%;
+  width: 9px;
+  height: 2px;
+  background-color: var(--color-bg-01);
+  transform: translateY(-50%);
+}
+
+body.design-03 input[type="checkbox"]:disabled {
+  border-color: color-mix(in srgb, var(--color-link) 30%, var(--color-bg-01));
+}
+
+body.design-03 input[type="checkbox"]:checked:disabled {
+  background-color: color-mix(in srgb, var(--color-link) 30%, var(--color-bg-01));
+}
+
+/* Custom radio */
+body.design-03 input[type="radio"] {
+  appearance: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  border: 2px solid var(--color-link);
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+  flex-shrink: 0;
+  transition: border-color .15s ease;
+}
+
+body.design-03 input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  background-color: var(--color-link);
+  transition: transform .15s ease, opacity .15s ease;
+}
+
+@starting-style {
+  body.design-03 input[type="radio"]:checked::after {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+body.design-03 input[type="radio"]:disabled {
+  border-color: color-mix(in srgb, var(--color-link) 30%, var(--color-bg-01));
+}
+
+/* Custom range slider */
+body.design-03 input[type="range"] {
+  appearance: none;
+  height: 4px;
+  background: color-mix(in srgb, var(--color-link) 25%, var(--color-bg-02));
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  padding: 0;
+  width: 100%;
+}
+
+body.design-03 input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background-color: var(--color-link);
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+body.design-03 input[type="range"]:not(:disabled)::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--color-link) 20%, transparent);
+}
+
+body.design-03 input[type="range"]::-moz-range-thumb {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--color-link);
+  cursor: pointer;
+  transition: transform .15s ease;
+}
+
+body.design-03 input[type="range"]:not(:disabled)::-moz-range-thumb:hover {
+  transform: scale(1.25);
+}
+
+/* Buttons — hover, active, animated focus ring */
+body.design-03 button:not(:disabled),
+body.design-03 input[type="submit"]:not(:disabled),
+body.design-03 input[type="reset"]:not(:disabled) {
+  transition: background-color .15s ease, transform .1s ease, outline-offset .15s ease;
+}
+
+body.design-03 button:not(:disabled):hover,
+body.design-03 input[type="submit"]:not(:disabled):hover,
+body.design-03 input[type="reset"]:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--color-link) 80%, var(--color-bg-01));
+}
+
+body.design-03 button:not(:disabled):active,
+body.design-03 input[type="submit"]:not(:disabled):active,
+body.design-03 input[type="reset"]:not(:disabled):active {
+  transform: scale(.97);
+}
+
+body.design-03 button:focus-visible,
+body.design-03 input[type="submit"]:focus-visible,
+body.design-03 input[type="reset"]:focus-visible {
+  outline-offset: 4px;
+}
+
+@starting-style {
+  body.design-03 button:focus-visible,
+  body.design-03 input[type="submit"]:focus-visible,
+  body.design-03 input[type="reset"]:focus-visible {
+    outline-offset: 0px;
+  }
+}
