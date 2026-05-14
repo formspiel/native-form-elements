@@ -189,10 +189,15 @@
 	</div>
 
 	<h2>Indeterminate</h2>
+	<p>The <code>indeterminate</code> state has no HTML attribute — it can only be set via JavaScript (<code>el.indeterminate = true</code>). Use the CSS pseudo-class <code>:indeterminate</code> for styling.</p>
 	<div class="grid-wrapper">
 		<div class="grid-item-wrapper">
 			<input type="checkbox" id="check-indeterminate" name="activities-indeterminate" value="indeterminate">
 			<label for="check-indeterminate">All options</label>
+		</div>
+		<div class="grid-item-wrapper">
+			<input type="checkbox" id="check-indeterminate-dis" name="activities-indeterminate-dis" value="indeterminate" disabled>
+			<label for="check-indeterminate-dis">All options</label>
 		</div>
 	</div>
 </fieldset>

@@ -11,9 +11,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Indeterminate checkbox — must be set via JS, cannot be done in HTML
-    const checkIndeterminate = document.getElementById('check-indeterminate');
-    if (checkIndeterminate) checkIndeterminate.indeterminate = true;
+    // Indeterminate checkboxes — must be set via JS, cannot be done in HTML
+    ['check-indeterminate', 'check-indeterminate-dis'].forEach(function (id) {
+        const el = document.getElementById(id);
+        if (el) el.indeterminate = true;
+    });
 
     // Design tier toggles — apply/remove body class matching checkbox id
     document.querySelectorAll('.design-option').forEach(function (checkbox) {

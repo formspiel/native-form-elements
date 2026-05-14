@@ -188,3 +188,8 @@ body.design-02 textarea:disabled,
 body.design-02 select:disabled {
   border-color: color-mix(in srgb, var(--color-link) 30%, var(--color-bg-01));
 }
+
+body.design-02 input[type="checkbox"]:indeterminate {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
