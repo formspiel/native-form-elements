@@ -266,15 +266,14 @@ body:is(.design-01, .design-02) section {
     position: sticky;
     top: 0;
     z-index: 10;
-    background-color: var(--color-bg-01);
+    background-color: color-mix(in srgb, var(--color-bg-01) 95%, transparent);
     padding-block: .375rem;
     margin-bottom: 1.5rem;
-    border-bottom: 1px solid var(--color-bg-02);
+    border-bottom: 1px solid var(--color-link);
     font-size: .75rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .06em;
-    opacity: .6;
   }
 }
 
