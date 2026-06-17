@@ -185,6 +185,11 @@ body.design-02 select:disabled {
   border-color: color-mix(in srgb, var(--color-link) 30%, var(--color-bg-01));
 }
 
+body.design-02 input[readonly],
+body.design-02 textarea[readonly] {
+  font-family: cursive;
+}
+
 body.design-02 progress,
 body.design-02 meter {
   width: 100%;
@@ -628,6 +633,14 @@ body.design-03 input:not([type="checkbox"]):not([type="radio"]):not([type="range
 body.design-03 textarea,
 body.design-03 select {
   border-radius: 8px;
+}
+
+/* Readonly — italic text + amber border signals static, non-editable content */
+body.design-03 input[readonly],
+body.design-03 textarea[readonly] {
+  font-family: inherit;
+  font-style: italic;
+  border-color: var(--d3-amber);
 }
 
 /* Multi-colour glow focus ring */
