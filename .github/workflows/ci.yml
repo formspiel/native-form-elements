@@ -22,6 +22,7 @@ jobs:
       # Remove it later if you want stricter enforcement.
       - uses: Cyb3r-Jak3/html5validator-action@v7.2.0
         with:
+          root: .
           target: index.html
           extra: --errors-only
 
