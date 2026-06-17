@@ -363,15 +363,87 @@
 		</div>
 	</div>
 	
+	<h2>Multi-select</h2>
 	<div class="grid-wrapper">
 		<div class="grid-item-wrapper">
 			<label for="dropdown-multi">Countries</label>
 			<select id="dropdown-multi" name="dropdown-multi" multiple>
-				<option value="">Please choose &hellip;</option>
 				<option value="1">Option 1</option>
 				<option value="2">Option 2</option>
 				<option value="3">Option 3</option>
 			</select>
+		</div>
+
+		<div class="grid-item-wrapper">
+			<label for="dropdown-multi-pre">Countries</label>
+			<select id="dropdown-multi-pre" name="dropdown-multi-pre" multiple>
+				<option value="1" selected>Option 1</option>
+				<option value="2">Option 2</option>
+				<option value="3" selected>Option 3</option>
+			</select>
+		</div>
+
+		<div class="grid-item-wrapper">
+			<label for="dropdown-multi-req">Countries</label>
+			<select id="dropdown-multi-req" name="dropdown-multi-req" multiple required>
+				<option value="1">Option 1</option>
+				<option value="2">Option 2</option>
+				<option value="3">Option 3</option>
+			</select>
+		</div>
+
+		<div class="grid-item-wrapper">
+			<label for="dropdown-multi-ro">Countries</label>
+			<select id="dropdown-multi-ro" name="dropdown-multi-ro" multiple>
+				<option value="1" disabled selected>Option 1</option>
+				<option value="2" disabled>Option 2</option>
+				<option value="3" disabled selected>Option 3</option>
+			</select>
+		</div>
+
+		<div class="grid-item-wrapper">
+			<label for="dropdown-multi-dis">Countries</label>
+			<select id="dropdown-multi-dis" name="dropdown-multi-dis" multiple disabled>
+				<option value="1" selected>Option 1</option>
+				<option value="2">Option 2</option>
+				<option value="3" selected>Option 3</option>
+			</select>
+		</div>
+	</div>
+
+	<h2>Variants — read-only approaches for multi-select</h2>
+	<p><code>&lt;select&gt;</code> has no native <code>readonly</code> attribute. Three workarounds, each with different trade-offs:</p>
+	<div class="grid-wrapper">
+		<div class="grid-item-wrapper">
+			<label for="dropdown-multi-ro-a">A — all <code>option[disabled]</code></label>
+			<select id="dropdown-multi-ro-a" name="dropdown-multi-ro-a" multiple>
+				<option value="1" disabled selected>Option 1</option>
+				<option value="2" disabled>Option 2</option>
+				<option value="3" disabled selected>Option 3</option>
+			</select>
+			<span class="form-field-hint">Looks read-only. Selected values are <strong>not submitted</strong> — disabled options are excluded from the form payload.</span>
+		</div>
+
+		<div class="grid-item-wrapper">
+			<label for="dropdown-multi-ro-b">B — non-selected <code>option[disabled]</code></label>
+			<select id="dropdown-multi-ro-b" name="dropdown-multi-ro-b" multiple>
+				<option value="1" selected>Option 1</option>
+				<option value="2" disabled>Option 2</option>
+				<option value="3" selected>Option 3</option>
+			</select>
+			<span class="form-field-hint">Selected values <strong>are submitted</strong>. But selected options can still be deselected — not truly read-only.</span>
+		</div>
+
+		<div class="grid-item-wrapper">
+			<label for="dropdown-multi-ro-c">C — <code>select[disabled]</code> + hidden inputs</label>
+			<select id="dropdown-multi-ro-c" name="_dropdown-multi-ro-c-display" multiple disabled>
+				<option value="1" selected>Option 1</option>
+				<option value="2">Option 2</option>
+				<option value="3" selected>Option 3</option>
+			</select>
+			<input type="hidden" name="dropdown-multi-ro-c" value="1" />
+			<input type="hidden" name="dropdown-multi-ro-c" value="3" />
+			<span class="form-field-hint">Truly read-only UX. Hidden <code>&lt;input type="hidden"&gt;</code> siblings carry the values so they <strong>are submitted</strong>.</span>
 		</div>
 	</div>
 </fieldset>
@@ -1213,7 +1285,7 @@
 </main>
 
 <footer>
-  <p>Made with ♡ by <span id="js-contributors"></span> and Claude &nbsp;·&nbsp; <span id="footer-version">v1·3c2f121</span></p>
+  <p>Made with ♡ by <span id="js-contributors"></span> and Claude &nbsp;·&nbsp; <span id="footer-version">v1·d84eb70</span></p>
 </footer>
 
 <script src="behaviour.js"></script>
