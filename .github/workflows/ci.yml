@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+
+  validate-html:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Nu HTML Checker (validator.w3.org/nu) is the W3C's official validator —
+      # the same engine behind the browser's "Validate this page" tools.
+      # html5validator is a Python wrapper that downloads and runs vnu.jar.
+      #
+      # --errors-only skips informational warnings (e.g. "trailing slash on
+      # void elements") and only fails on genuine spec violations.
+      # Remove it later if you want stricter enforcement.
+      - uses: Cyb3r-Jak3/html5validator-action@v7.2.0
+        with:
+          target: index.html
+          extra: --errors-only
+
+  check-nav-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify every nav href="#…" resolves to a section id in index.html
+        run: |
+          # grep -oP 'href="#\K[^"]+'
+          #   -o  → print only the matched part, not the whole line
+          #   -P  → Perl-compatible regex (enables \K)
+          #   \K  → resets the match start, so only the capture after # is returned
+          hrefs=$(grep -oP 'href="#\K[^"]+' index.html | sort -u)
+          missing=0
+          while IFS= read -r id; do
+            if ! grep -q "id=\"$id\"" index.html; then
+              # ::error:: is a GitHub Actions workflow command.
+              # It creates a red annotation visible in the PR diff and
+              # the job summary — much more visible than plain echo output.
+              echo "::error::Nav link #${id} has no matching id= in index.html"
+              missing=$((missing + 1))
+            fi
+          done <<< "$hrefs"
+          [ $missing -eq 0 ] || exit 1
