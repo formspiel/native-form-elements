@@ -203,6 +203,16 @@ body.design-02 textarea[readonly] {
   font-style: italic;
 }
 
+/* Required field indicator — asterisk after label
+   label:has(+ :required) covers text/email/select/textarea (label before control)
+   input:required + label covers checkbox and radio (label after control)        */
+body.design-02 label:has(+ :required)::after,
+body.design-02 input:required + label::after {
+  content: " *";
+  color: var(--color-link);
+  font-weight: 700;
+}
+
 body.design-02 progress,
 body.design-02 meter {
   width: 100%;
