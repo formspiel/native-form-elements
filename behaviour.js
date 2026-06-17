@@ -36,6 +36,21 @@ document.addEventListener('DOMContentLoaded', () => {
         input.addEventListener('input', () => { output.value = input.value; });
     });
 
+    // Page title — append section name from hash so shared anchor links are distinguishable
+    const BASE_TITLE = 'Native HTML Form Elements';
+    function updateTitleFromHash() {
+        const hash = window.location.hash.slice(1);
+        if (!hash) { document.title = BASE_TITLE; return; }
+        const section = document.getElementById(hash);
+        const label = section && (
+            section.querySelector('legend')?.textContent.trim() ||
+            section.querySelector('h1,h2,h3')?.textContent.trim()
+        );
+        document.title = label ? `${BASE_TITLE} — ${label}` : BASE_TITLE;
+    }
+    window.addEventListener('hashchange', updateTitleFromHash);
+    updateTitleFromHash();
+
     // Footer — render contributors from GitHub API
     const contributorsEl = document.getElementById('js-contributors');
     if (contributorsEl) {
