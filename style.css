@@ -187,7 +187,7 @@ body.design-02 select:disabled {
 
 body.design-02 input[readonly],
 body.design-02 textarea[readonly] {
-  font-family: cursive;
+  font-style: italic;
 }
 
 body.design-02 progress,
