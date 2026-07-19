@@ -220,6 +220,7 @@ body.design-02 textarea[readonly] {
 body.design-02 label:has(+ :required)::after,
 body.design-02 input:required + label::after {
   content: " *";
+  content: " *" / "";
   color: var(--color-link);
   font-weight: 700;
 }
