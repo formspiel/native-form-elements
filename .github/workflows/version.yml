@@ -1,5 +1,8 @@
 name: Update footer version
 
+permissions:
+  contents: write
+
 on:
   push:
     branches: [master]
