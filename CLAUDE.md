@@ -175,6 +175,5 @@ Falls back to `system-ui, sans-serif` until loaded.
 | # | Title | Status |
 |---|-------|--------|
 | [#2](https://github.com/formspiel/native-form-elements/issues/2) | Add modern theme switch (CSS style queries) | Open |
-| [#9](https://github.com/formspiel/native-form-elements/issues/9) | Review forced-colors (high contrast) CSS support | Open |
 | [#10](https://github.com/formspiel/native-form-elements/issues/10) | Investigate multi-language textarea voice switching on macOS 26 | Open |
-| [#11](https://github.com/formspiel/native-form-elements/issues/11) | Set up CI: HTML validation on push | Open |
+| [#16](https://github.com/formspiel/native-form-elements/issues/16) | Test multi-select read-only approaches across browsers | Open |
