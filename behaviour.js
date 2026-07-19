@@ -59,13 +59,18 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(list => {
                 if (!Array.isArray(list)) return;
                 list.forEach((c, i) => {
+                    if (!c || typeof c.login !== 'string') return;
                     if (i > 0) contributorsEl.appendChild(document.createTextNode(', '));
-                    const a = document.createElement('a');
-                    a.href = c.html_url;
-                    a.textContent = c.login;
-                    a.target = '_blank';
-                    a.rel = 'noopener noreferrer';
-                    contributorsEl.appendChild(a);
+                    if (typeof c.html_url === 'string' && c.html_url.startsWith('https://github.com/')) {
+                        const a = document.createElement('a');
+                        a.href = c.html_url;
+                        a.textContent = c.login;
+                        a.target = '_blank';
+                        a.rel = 'noopener noreferrer';
+                        contributorsEl.appendChild(a);
+                    } else {
+                        contributorsEl.appendChild(document.createTextNode(c.login));
+                    }
                 });
             })
             .catch(() => {});
