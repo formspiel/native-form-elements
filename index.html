@@ -1362,6 +1362,21 @@
 			<input type="reset" value="input[reset]" disabled />
 		</div>
 	</div>
+
+	<h2><code>formnovalidate</code></h2>
+	<p>A submit button with <code>formnovalidate</code> skips this form's native validation, so it submits even while the required field below is empty.</p>
+	<div class="grid-wrapper">
+		<div class="grid-item-wrapper">
+			<label for="button-novalidate-input">Required text</label>
+			<input type="text" id="button-novalidate-input" name="button-novalidate-input" required />
+		</div>
+		<div class="grid-item-wrapper">
+			<button type="submit">button[submit]</button>
+		</div>
+		<div class="grid-item-wrapper">
+			<button type="submit" formnovalidate>button[submit, formnovalidate]</button>
+		</div>
+	</div>
 </fieldset>
 	<p class="section-actions">
 		<button type="submit">Submit</button>
