@@ -812,3 +812,55 @@ body.design-03 .form-field-hint {
   margin-top: .5rem;
   font-size: .875rem;
 }
+
+
+/*  S T A T U S   B A N N E R  */
+/* Page chrome (like nav/footer) — styled at every tier, not gated by
+   the Tier-0 "no CSS on form elements" rule. Always in the DOM so the
+   role="status" live region is available to announce changes; hidden
+   via opacity/pointer-events rather than display/visibility so it can
+   fade and so it's never mistaken for a form element itself. */
+
+#status-banner {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translate(-50%, .5rem);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  max-width: min(90vw, 40rem);
+  padding: .75rem 1rem;
+  background-color: var(--color-bg-02);
+  color: var(--color-text);
+  border: 1px solid var(--color-link);
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+#status-banner.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+
+#status-banner-close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  color: inherit;
+  padding: 0 .25rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #status-banner {
+    transition: none;
+  }
+}

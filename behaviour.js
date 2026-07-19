@@ -59,6 +59,81 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('hashchange', updateTitleFromHash);
     updateTitleFromHash();
 
+    // Status banner — accessible feedback for section form submit/invalid/reset
+    const banner = document.getElementById('status-banner');
+    const bannerText = document.getElementById('status-banner-text');
+    const bannerClose = document.getElementById('status-banner-close');
+    let bannerTimer = null;
+
+    function showBanner(message) {
+        bannerText.textContent = message;
+        banner.classList.add('is-visible');
+        clearTimeout(bannerTimer);
+        bannerTimer = setTimeout(hideBanner, 7000);
+    }
+
+    function hideBanner() {
+        banner.classList.remove('is-visible');
+        clearTimeout(bannerTimer);
+    }
+
+    if (bannerClose) bannerClose.addEventListener('click', hideBanner);
+
+    function formLabel(form) {
+        const heading = form.querySelector('legend') || form.querySelector('h1,h2,h3');
+        return heading ? heading.textContent.trim() : 'Section';
+    }
+
+    // Submit — intercept, never actually send anywhere; show the serialized payload
+    document.addEventListener('submit', (event) => {
+        const form = event.target;
+        if (!(form instanceof HTMLFormElement)) return;
+        event.preventDefault();
+        const pairs = [];
+        for (const [key, value] of new FormData(form).entries()) {
+            pairs.push(`${key}=${value}`);
+        }
+        const payload = pairs.length ? pairs.join(', ') : '(empty)';
+        showBanner(`${formLabel(form)} — submitted. Payload: ${payload}`);
+    });
+
+    // Invalid — does not bubble, must listen on the capture phase.
+    // Native validation fires one 'invalid' event per invalid control, all
+    // synchronously before any UI/focus happens, so debounce with a 0ms
+    // timer to collect the full count for one submit attempt.
+    let invalidForm = null;
+    let invalidCount = 0;
+    let invalidTimer = null;
+    document.addEventListener('invalid', (event) => {
+        const form = event.target.form;
+        if (!form) return;
+        if (invalidForm !== form) {
+            invalidForm = form;
+            invalidCount = 0;
+        }
+        invalidCount++;
+        clearTimeout(invalidTimer);
+        invalidTimer = setTimeout(() => {
+            const field = invalidCount === 1 ? 'field' : 'fields';
+            showBanner(`${formLabel(form)} — submission blocked by native validation: ${invalidCount} invalid ${field}, browser focused the first.`);
+            invalidForm = null;
+        }, 0);
+    }, true);
+
+    // Reset — the reset event fires before the browser reverts field values,
+    // so slider outputs must be re-synced a tick later.
+    document.addEventListener('reset', (event) => {
+        const form = event.target;
+        if (!(form instanceof HTMLFormElement)) return;
+        showBanner(`${formLabel(form)} — reset to default values.`);
+        setTimeout(() => {
+            form.querySelectorAll('input[type="range"]').forEach(input => {
+                const output = document.getElementById(input.id + '-output');
+                if (output) output.value = input.value;
+            });
+        }, 0);
+    });
+
     // Footer — render contributors from GitHub API
     const contributorsEl = document.getElementById('js-contributors');
     if (contributorsEl) {
