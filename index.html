@@ -156,8 +156,8 @@
 
 <fieldset id="section-otp">
 	<legend>One Time Password</legend>
-	
-	<p>Some text</p>
+
+	<p>A one-time code field. <code>autocomplete="one-time-code"</code> lets browsers and password managers offer SMS/generated codes, <code>inputmode="numeric"</code> raises a numeric keyboard on touch devices, and <code>pattern="[0-9]*"</code> restricts the value to digits.</p>
 	
 	<div class="grid-wrapper">
 		<div class="grid-item-wrapper">
@@ -786,7 +786,7 @@
 				<option value="Zambia">
 				<option value="Zimbabwe">
 			</datalist>
-			<span class="grid-item-hint" id="hash-02">You can filter the list items by typing the first characters of the term.</span>
+			<span class="form-field-hint" id="hash-02">You can filter the list items by typing the first characters of the term.</span>
 		</div>
 	</div>
 
@@ -844,27 +844,27 @@
 	<div class="grid-wrapper">
 		<div class="grid-item-wrapper">
 			<label for="meeting-time-std">Appointment</label>
-			<input type="datetime-local" id="meeting-time-std" name="meeting-time" />
+			<input type="datetime-local" id="meeting-time-std" name="meeting-time-std" />
 		</div>
 		
 		<div class="grid-item-wrapper">
 			<label for="meeting-time-pre">Appointment</label>
-			<input type="datetime-local" id="meeting-time-pre" name="meeting-time" value="2018-06-12T19:30" min="2018-06-07T00:00" max="2018-06-14T00:00" />
+			<input type="datetime-local" id="meeting-time-pre" name="meeting-time-pre" value="2018-06-12T19:30" min="2018-06-07T00:00" max="2018-06-14T00:00" />
 		</div>
 		
 		<div class="grid-item-wrapper">
 			<label for="meeting-time-req">Appointment</label>
-			<input type="datetime-local" id="meeting-time-req" name="meeting-time" value="2018-06-12T19:30" min="2018-06-07T00:00" max="2018-06-14T00:00" required />
+			<input type="datetime-local" id="meeting-time-req" name="meeting-time-req" value="2018-06-12T19:30" min="2018-06-07T00:00" max="2018-06-14T00:00" required />
 		</div>
 		
 		<div class="grid-item-wrapper">
 			<label for="meeting-time-ro">Appointment</label>
-			<input type="datetime-local" id="meeting-time-ro" name="meeting-time" value="2018-06-12T19:30" min="2018-06-07T00:00" max="2018-06-14T00:00" readonly />
+			<input type="datetime-local" id="meeting-time-ro" name="meeting-time-ro" value="2018-06-12T19:30" min="2018-06-07T00:00" max="2018-06-14T00:00" readonly />
 		</div>
 		
 		<div class="grid-item-wrapper">
 			<label for="meeting-time-dis">Appointment</label>
-			<input type="datetime-local" id="meeting-time-dis" name="meeting-time" value="2018-06-12T19:30" min="2018-06-07T00:00" max="2018-06-14T00:00" disabled />
+			<input type="datetime-local" id="meeting-time-dis" name="meeting-time-dis" value="2018-06-12T19:30" min="2018-06-07T00:00" max="2018-06-14T00:00" disabled />
 		</div>
 	</div>
 </fieldset>
