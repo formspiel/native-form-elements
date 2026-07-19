@@ -775,6 +775,28 @@ body.design-03 input[type="range"][list] {
   accent-color: var(--d3-a);
 }
 
+/* Forced colors (Windows High Contrast) — undo techniques that don't
+   survive the forced palette: gradient-text headings can render
+   invisible (background is stripped but -webkit-text-fill-color is
+   not a forced property), and custom checkbox/radio/range lose their
+   system-drawn checked/focus indication once appearance is removed. */
+@media (forced-colors: active) {
+  body.design-03 h1,
+  body.design-03 h2,
+  body.design-03 legend,
+  body.design-03 [role="group"] > h3 {
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    color: CanvasText;
+  }
+
+  body.design-03 input[type="checkbox"],
+  body.design-03 input[type="radio"],
+  body.design-03 input[type="range"] {
+    appearance: auto;
+  }
+}
+
 /*  F O O T E R  */
 
 footer {
