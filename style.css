@@ -62,10 +62,6 @@ a {
 
 /* F O R M   B A S I C   S T Y L E S */
 
-.form-field-wrapper {
-  margin-bottom: .5rem;
-}
-
 .form-field-hint {
   font-style: italic;
 }
@@ -91,14 +87,6 @@ textarea[readonly] {
 @media (prefers-color-scheme: dark) {
   :focus-visible {
     outline-color: var(--color-focus);
-  }
-
-  img {
-    opacity: .75;
-    transition: opacity .5s ease-in-out;
-  }
-  img:hover {
-    opacity: 1;
   }
 
   input,
