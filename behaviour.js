@@ -26,6 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.body.classList.add('design-02');
                 }
             }
+            // Removing the base tier also removes Showcase, which depends on it
+            if (this.id === 'design-02' && !this.checked) {
+                const design03 = document.getElementById('design-03');
+                if (design03 && design03.checked) {
+                    design03.checked = false;
+                    document.body.classList.remove('design-03');
+                }
+            }
         });
     });
 
