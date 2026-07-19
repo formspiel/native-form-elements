@@ -804,7 +804,7 @@ footer {
   padding-block: 1.5rem;
   border-top: 1px solid var(--color-bg-02);
   font-size: .875rem;
-  opacity: .7;
+  color: color-mix(in srgb, var(--color-text) 75%, var(--color-bg-01));
 }
 
 /* Hint — give it room to breathe */
